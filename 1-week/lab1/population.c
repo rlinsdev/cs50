@@ -6,21 +6,21 @@ int calc_llamas(int start_size, int end_size);
 
 int main(void)
 {
-	int start_size;
-	int end_size;
+    int start_size;
+    int end_size;
 
-	do
-	{
-		start_size = get_int("Start size: ");
-	} while (start_size < 9);
+    do
+    {
+        start_size = get_int("Start size: ");
+    } while (start_size < 9);
 
-	do
-	{
-		end_size = get_int("End size: ");
-	} while (start_size > end_size);
+    do
+    {
+        end_size = get_int("End size: ");
+    } while (start_size > end_size);
 
-	int years = calc_llamas(start_size, end_size);
-	printf("Years: %i\n", years);
+    int years = calc_llamas(start_size, end_size);
+    printf("Years: %i\n", years);
 }
 
 /**
@@ -32,22 +32,22 @@ int main(void)
  */
 int calc_llamas(int start_size, int end_size)
 {
-	if (start_size == end_size)
-		return 0;
-		
-	int years = 0;
-	int ll_by_year = start_size;
+    if (start_size == end_size)
+        return 0;
 
-	do
-	{
-		int new_llamas = start_size / 3;
-		int p_away_llamas = start_size / 4;
-		ll_by_year = start_size + (new_llamas - p_away_llamas);
+    int years = 0;
+    int ll_by_year = start_size;
 
-		years++;
-		start_size = ll_by_year;
-	} while (end_size > ll_by_year);
-	return years;
+    do
+    {
+        int new_llamas = start_size / 3;
+        int p_away_llamas = start_size / 4;
+        ll_by_year = start_size + (new_llamas - p_away_llamas);
+
+        years++;
+        start_size = ll_by_year;
+    } while (end_size > ll_by_year);
+    return years;
 }
 
 /**
@@ -57,8 +57,12 @@ int calc_llamas(int start_size, int end_size)
  */
 bool valid_input(int size)
 {
-	if (size > 9)
-		return (true);
-	else
-		return (false);
+    if (size > 9)
+    {
+        return (true);
+    }
+    else
+    {
+        return (false);
+    }
 }
