@@ -12,12 +12,14 @@ int main(void)
     do
     {
         start_size = get_int("Start size: ");
-    } while (start_size < 9);
+    }
+    while (start_size < 9);
 
     do
     {
         end_size = get_int("End size: ");
-    } while (start_size > end_size);
+    }
+    while (start_size > end_size);
 
     int years = calc_llamas(start_size, end_size);
     printf("Years: %i\n", years);
@@ -33,7 +35,9 @@ int main(void)
 int calc_llamas(int start_size, int end_size)
 {
     if (start_size == end_size)
+    {
         return 0;
+    }
 
     int years = 0;
     int ll_by_year = start_size;
@@ -46,7 +50,8 @@ int calc_llamas(int start_size, int end_size)
 
         years++;
         start_size = ll_by_year;
-    } while (end_size > ll_by_year);
+    }
+    while (end_size > ll_by_year);
     return years;
 }
 
