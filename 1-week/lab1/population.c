@@ -19,12 +19,9 @@ int main(void)
 		end_size = get_int("End size: ");
 	} while (start_size > end_size);
 
-
 	int years = calc_llamas(start_size, end_size);
 	printf("Years: %i\n", years);
 }
-
-// validar um menor que o outro?
 
 /**
  * @brief Calculate the number of years a population of llamas will grow, based
@@ -47,7 +44,6 @@ int calc_llamas(int start_size, int end_size)
 		years++;
 		start_size = ll_by_year;
 	} while (end_size > ll_by_year);
-
 	return years;
 }
 
@@ -58,8 +54,8 @@ int calc_llamas(int start_size, int end_size)
  */
 bool valid_input(int size)
 {
-    if (size > 9)
-        return (true);
-    else
-        return (false);
+	if (size > 9)
+		return (true);
+	else
+		return (false);
 }
