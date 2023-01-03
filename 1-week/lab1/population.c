@@ -6,13 +6,24 @@ int calc_llamas(int start_size, int end_size);
 
 int main(void)
 {
-	int start_size = get_int("Start size: ");
-	int end_size = get_int("End size: ");
+	int start_size;
+	int end_size;
+
+	do
+	{
+		start_size = get_int("Start size: ");
+	} while (start_size < 9);
+
+	do
+	{
+		end_size = get_int("End size: ");
+	} while (start_size > end_size);
+
+
 	int years = calc_llamas(start_size, end_size);
 	printf("Years: %i\n", years);
 }
 
-// Validar numero negativo
 // validar um menor que o outro?
 
 /**
@@ -35,7 +46,20 @@ int calc_llamas(int start_size, int end_size)
 
 		years++;
 		start_size = ll_by_year;
-	} while (end_size >= ll_by_year);
+	} while (end_size > ll_by_year);
 
 	return years;
+}
+
+/**
+ * @brief Validate the input passed by user
+ * @param size - Population size, typed by user
+ * @return boolean - Valid or invalid
+ */
+bool valid_input(int size)
+{
+    if (size > 9)
+        return (true);
+    else
+        return (false);
 }
