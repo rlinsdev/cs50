@@ -32,6 +32,9 @@ int main(void)
  */
 int calc_llamas(int start_size, int end_size)
 {
+	if (start_size == end_size)
+		return 0;
+		
 	int years = 0;
 	int ll_by_year = start_size;
 
