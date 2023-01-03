@@ -1,4 +1,4 @@
-# Harvard CS50 2022x - Weekly Overview
+# Harvard CS50 2023x - Weekly Overview
 TODO
 
 ## Week 0 - Scratch
@@ -11,34 +11,51 @@ TODO
 
 ## Week 1 - Lab 1:
 ## Population
-TODO Link do que tem q ser feito aqui:
+* <a href="https://cs50.harvard.edu/x/2023/labs/1/">Labs 1: Population Growth</a>
 
 ```Bash
 $ check50 cs50/labs/2023/x/population
 $ style50 population.c
 $ submit50 cs50/labs/2023/x/population
 ```
-### Result:
-* <a href="https://submit.cs50.io/check50/9d35478136daaf81cda8d60bbb457eb901fbd249">Result Population</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/population">Result Population</a>
 
 ## Hello
-TODO Link do que tem q ser feito aqui:
+* <a href="https://cs50.harvard.edu/x/2023/psets/1/hello/">Problem Set 1: Hello</a>
 
 ```Bash
 $ check50 cs50/problems/2023/x/hello
 $ style50 hello.c
 $ submit50 cs50/labs/2023/x/population
 ```
-### Result:
-https://submit.cs50.io/check50/84893026381468c4e5c229441395a9e1caba113e
+* <a href="https://submit.cs50.io/check50/c31cf070cc6c3b48775d5c6d1f04d700d01e79f4">Hello Result check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/hello">Hello Result submit50</a>
+
+## Mario
+* <a href="https://cs50.harvard.edu/x/2023/psets/1/mario/less/">Problem Set 1: Mario</a>
+
+```Bash
+$ check50 cs50/problems/2023/x/mario/less
+$ style50 mario.c
+$ submit50 cs50/problems/2023/x/mario/less
+```
+* <a href="https://submit.cs50.io/check50/84893026381468c4e5c229441395a9e1caba113e">Mario Result check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/mario/less">Mario Result Hello</a>
+
 
 
 
 
 
 ### Links
-* <a href="https://cs50.harvard.edu/x/2023/labs/1/">Population Growth</a>
-* <a href="https://cs50.harvard.edu/x/2023/psets/1/">Problem Set 1</a>
+
+
+
+
+
+
+
+
 
 
 ## Debug C - Intra
