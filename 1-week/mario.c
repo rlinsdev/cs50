@@ -3,10 +3,17 @@
 
 void print_blocks(int size);
 bool valid_input(int size);
-
-//gcc mario.c -lcs50 -o mario.out
+void init(void);
 
 int main(void)
+{
+    init();
+}
+
+/**
+ * @brief Will initialize the project. Call methods to validate and print blocks
+ */
+void init(void)
 {
     int size = get_int("Height: ");
     bool is_valid = valid_input(size);
@@ -23,10 +30,14 @@ int main(void)
     }
     else
     {
-        main();
+        init();
     }
 }
 
+/**
+ * @brief Handle the print blocks
+ * @param size Size to print block
+ */
 void print_blocks(int size)
 {
     int i = 0;
@@ -37,6 +48,11 @@ void print_blocks(int size)
     }
 }
 
+/**
+ * @brief Validate the input passed by user
+ * @param size - Size typed by user
+ * @return boolean - Valid or invalid
+ */
 bool valid_input(int size)
 {
     if (size >= 1 && size <= 8)
