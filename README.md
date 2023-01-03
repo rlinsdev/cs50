@@ -56,4 +56,5 @@ F5
 * <a href="https://cs50.harvard.edu/x/2023/faqs/">CS50x</a>
 * <a href="https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home">Course in Edx</a>
 * <a href="https://cs50.readthedocs.io/libraries/cs50/c/">CS50.h doc</a>
+* <a href="https://cs50.readthedocs.io/style50/">CS50 style</a>
 * <a href="https://cs50.readthedocs.io/github/">SSH/Token GitHub</a>
