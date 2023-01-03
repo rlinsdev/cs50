@@ -5,6 +5,7 @@ void print_blocks(int size);
 bool valid_input(int size);
 void init(void);
 
+//gcc -g mario.c -lcs50 -o mario
 int main(void)
 {
     init();
