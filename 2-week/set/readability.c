@@ -90,8 +90,7 @@ static void handle_text(string txt, int *qtd_ltt, int *qtd_stc, int *qtd_wrd)
                 || txt[i] == ':')
         {
             // Handle '...'. Just one sentence. Increment 'i' variable.
-            if ((txt[i+1] && txt[i+2]) && (txt[i] == '.' && txt[i+1] == '.'
-                    && txt[i+2] == '.'))
+            if ((txt[i + 1] && txt[i + 2]) && (txt[i] == '.' && txt[i + 1] == '.' && txt[i + 2] == '.'))
             {
                 i = i + 2;
             }
