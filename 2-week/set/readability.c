@@ -86,7 +86,7 @@ static void handle_text(string txt, int *qtd_ltt, int *qtd_stc, int *qtd_wrd)
             *qtd_wrd = *qtd_wrd + 1;
         }
         // Check end of sentence.
-        else if (txt[i] == '!' || txt[i] == '.' || txt[i] == '?' || txt[i] == ':')
+        else if (txt[i] == '!' || txt[i] == '.' || txt[i] == '?')
         {
             // Handle '...'. Just one sentence. Increment 'i' variable.
             if ((txt[i + 1] && txt[i + 2]) && (txt[i] == '.' && txt[i + 1] == '.' && txt[i + 2] == '.'))

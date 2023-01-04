@@ -65,6 +65,16 @@ $ submit50 cs50/labs/2023/x/scrabble
 * <a href="https://submit.cs50.io/check50/d4ad6d01a91b276940ff3b30bcaef1084b9314ce">Scrabble check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/scrabble">Result Population</a>
 
+## Readability
+* <a href="https://cs50.harvard.edu/x/2023/psets/2/readability/">Set 2: Readability</a>
+
+```Bash
+$ check50 cs50/problems/2023/x/readability
+$ style50 readability.c
+$ submit50 cs50/problems/2023/x/readability
+```
+* <a href="https://submit.cs50.io/check50/d4ad6d01a91b276940ff3b30bcaef1084b9314ce">Readability check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/scrabble">Result Readability</a>
 
 
 
