@@ -1,23 +1,32 @@
 #include <cs50.h>
 #include <stdio.h>
 
-static void handler_text(string txt, int *qtd_ltt, int *qtd_stc, int *qtd_wrd);
+static void handle_text(string txt, int *qtd_ltt, int *qtd_stc, int *qtd_wrd);
+static void handle_calc(int qtd_ltt, int qtd_stc, int qtd_wrd);
 
 int main(void)
 {
     int qtd_ltt = 0;
     int qtd_stc = 0;
-    int qtd_wrd = 0;
+    int qtd_wrd = 1;
     // string text = get_string("Text: ");
     string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";
 
-    handler_text(text, &qtd_ltt, &qtd_stc, &qtd_wrd);
-
-    printf("Quantidade de letra: %i", qtd_ltt);
-
+    handle_text(text, &qtd_ltt, &qtd_stc, &qtd_wrd);
+    handle_calc(qtd_ltt, qtd_stc, qtd_wrd);
 }
 
-static void handler_text(string txt, int *qtd_ltt, int *qtd_stc, int *qtd_wrd)
+static void handle_calc(int qtd_ltt, int qtd_stc, int qtd_wrd)
+{
+    double letter_per_hundred_words = ((double)qtd_ltt / qtd_wrd * 100);
+    double sentence_per_hundred_words = ((double)qtd_stc / qtd_wrd * 100);
+
+    int result = (0.0588 * letter_per_hundred_words - 0.296 * sentence_per_hundred_words - 15.8);
+
+    printf("Grade %i\n", result);
+}
+
+static void handle_text(string txt, int *qtd_ltt, int *qtd_stc, int *qtd_wrd)
 {
     int i = 0;
     while (txt[i])
