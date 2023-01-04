@@ -9,7 +9,7 @@ int main(void)
     int qtd_ltt = 0;
     int qtd_stc = 0;
     int qtd_wrd = 1;
-    // string text = get_string("Text: ");
+    string text = get_string("Text: ");
 
     // Grade 3  65 letters, 4 sentences, and 14 words
     // string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";
