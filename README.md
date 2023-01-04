@@ -9,7 +9,7 @@ TODO
 * <a href="https://cs50.harvard.edu/x/2023/psets/0/scratch/">https://scratch.mit.edu/projects/768149990</a>
 * <a href="https://cs50.harvard.edu/x/2023/psets/0/scratch/">Scratch</a>
 
-## Week 1 - Lab 1:
+## Week 1 - C - Lab 1:
 ## Population
 * <a href="https://cs50.harvard.edu/x/2023/labs/1/">Labs 1: Population Growth</a>
 
@@ -53,7 +53,17 @@ $ submit50 cs50/problems/2023/x/cash
 * <a href="https://submit.cs50.io/check50/93c2e731b38360725e635de98521844345be9d0d">Cash Result check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/cash">Cash Result submit50</a>
 
+## Week 2 - Arrays - Lab 1:
+## Scrabble
+* <a href="https://cs50.harvard.edu/x/2023/labs/2/">Labs 1: Scrabble</a>
 
+```Bash
+$ check50 cs50/labs/2023/x/scrabble
+$ style50 scrabble.c
+$ submit50 cs50/labs/2023/x/scrabble
+```
+* <a href="https://submit.cs50.io/check50/d4ad6d01a91b276940ff3b30bcaef1084b9314ce">Scrabble check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/scrabble">Result Population</a>
 
 
 
