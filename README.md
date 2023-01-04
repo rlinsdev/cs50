@@ -65,7 +65,7 @@ $ submit50 cs50/labs/2023/x/scrabble
 * <a href="https://submit.cs50.io/check50/d4ad6d01a91b276940ff3b30bcaef1084b9314ce">Scrabble check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/scrabble">Result Population</a>
 
-## Readability
+## Week 2 - Readability
 * <a href="https://cs50.harvard.edu/x/2023/psets/2/readability/">Set 2: Readability</a>
 
 ```Bash
@@ -75,6 +75,18 @@ $ submit50 cs50/problems/2023/x/readability
 ```
 * <a href="https://submit.cs50.io/check50/2f7d02871ffe2424da9c42a2c434bc2f7cac122d">Readability check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/readability">Result Readability</a>
+
+
+## Week 2 - Bulbs
+* <a href="https://cs50.harvard.edu/x/2023/psets/2/bulbs/">Set 2: Bulbs</a>
+
+```Bash
+$ check50 cs50/problems/2023/x/bulbs
+$ style50 bulbs.c
+$ submit50 cs50/problems/2023/x/bulbs
+```
+* <a href="https://submit.cs50.io/check50/539da33afa53f16a4dc43f47a5f591ac376992eb">Bulbs check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/bulbs">Result Bulbs</a>
 
 
 

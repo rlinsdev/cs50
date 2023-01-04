@@ -15,7 +15,7 @@ int main(void)
 }
 
 /**
- * @brief While trought all string
+ * @brief While through all string
  * @param msg String typed by user
  */
 void handle_base(string msg)
@@ -30,7 +30,7 @@ void handle_base(string msg)
 }
 
 /**
- * @brief Handle the decimal value to binary value. Get the rest of division
+ * @brief Handle the decimal value to binary value. Get the remainder of division
  * to discovery the value.
  * Print in reverse order to be right result
  * @param asc_nbr Number in decimal. Representation of ASCII table
@@ -42,10 +42,10 @@ static void dec_to_binary(int asc_nbr)
     int result[32];
     int i = 0;
 
-    // Until the end of number. If less then 7, add 0 to complete 8 bits representation
-    while (asc_nbr > 0 || i < 7)
+    // Until the end of number. If less then 8, add 0 to complete 8 bits representation
+    while (asc_nbr > 0 || i < BITS_IN_BYTE)
     {
-        // Divided by base, get the rest by division
+        // Divided by base, get the remainder by division
         result[i] = asc_nbr % base;
         // update number
         asc_nbr = (asc_nbr / base);
@@ -64,7 +64,7 @@ static void dec_to_binary(int asc_nbr)
 }
 
 /**
- * @brief Responsible to print the emoji. Angram of bulbs (light on / off)
+ * @brief Responsible to print the emoji. Anagram of bulbs (light on / off)
  * @param bit Value 1 or 0
  */
 void print_bulb(int bit)
