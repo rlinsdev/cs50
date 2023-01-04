@@ -73,8 +73,8 @@ $ check50 cs50/problems/2023/x/readability
 $ style50 readability.c
 $ submit50 cs50/problems/2023/x/readability
 ```
-* <a href="https://submit.cs50.io/check50/d4ad6d01a91b276940ff3b30bcaef1084b9314ce">Readability check50</a>
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/scrabble">Result Readability</a>
+* <a href="https://submit.cs50.io/check50/2f7d02871ffe2424da9c42a2c434bc2f7cac122d">Readability check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/readability">Result Readability</a>
 
 
 
