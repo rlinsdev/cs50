@@ -1,11 +1,16 @@
-sort1 uses: TODO
+sort1 uses: Bubble
 
-How do you know?: TODO
+How do you know?: Bubble just is faster in Sorted arrays.
+Bubble is Slower in Random and reverse tests
 
-sort2 uses: TODO
+sort2 uses: Merge
 
-How do you know?: TODO
+How do you know?: Comparing the time in random txt files.
+Merge is faster than Selection and Bubble:
+Merge is faster in Reverse too.
 
-sort3 uses: TODO
+sort3 uses: Selection
 
-How do you know?: TODO
+How do you know?: Comparing the time in random txt files.
+Selection has the second speed execution
+Selection is the second in speed execution in reverse Too.

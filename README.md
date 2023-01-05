@@ -89,6 +89,16 @@ $ submit50 cs50/problems/2023/x/bulbs
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/bulbs">Result Bulbs</a>
 
 
+## Week 3 - Algorithms
+* <a href="https://cs50.harvard.edu/x/2023/labs/3/">Lab 3: Sort</a>
+
+```Bash
+$ check50 cs50/labs/2023/x/sort
+$ submit50 cs50/labs/2023/x/sort
+```
+* <a href="https://submit.cs50.io/check50/305e53832237d659c9209ed073dcad3b62a37206">Sort check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/sort">Result Sort</a>
+
 
 ### Links
 
