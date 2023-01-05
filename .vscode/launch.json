@@ -8,10 +8,11 @@
 			"name": "Program", //I named it Pusk because i can
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/3-week/problem/plurality/plurality",
+			"program": "${workspaceRoot}/3-week/problem/runoff/runoff",
 			"args": [
 				"Alice",
-				"Bob"
+				"Bob",
+				"Charlie"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -30,10 +31,11 @@
 			"name": "gdb",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/3-week/problem/plurality/plurality",
+			"program": "${workspaceRoot}/3-week/problem/runoff/runoff",
 			"args": [
 				"Alice",
-				"Bob"
+				"Bob",
+				"Charlie"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",
