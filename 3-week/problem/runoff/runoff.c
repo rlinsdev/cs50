@@ -150,20 +150,14 @@ void tabulate(void)
     int j = 0;
     for (i = 0; i < voter_count; i++)
     {
-        int id = preferences[i][j];
-        if (!candidates[id].eliminated)
+        for (j = 0; j < candidate_count; j++)
         {
-            candidates[id].votes = candidates[id].votes + 1;
-        }
-        else
-        {
-            // Repeat until Not eliminate candidate
-            do
+            int id = preferences[i][j];
+            if (!candidates[id].eliminated)
             {
-                id = preferences[i][j + 1];
+                candidates[id].votes++;
+                break;
             }
-            while (candidates[id].eliminated);
-            candidates[id].votes = candidates[id].votes + 1;
         }
     }
 }

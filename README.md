@@ -111,7 +111,18 @@ $ submit50 cs50/problems/2023/x/plurality
 * <a href="https://submit.cs50.io/check50/14331eff95ad3b27e9c93531b8476319b6ae6862">Plurality check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/plurality">Result Plurality</a>
 
+## Week 3 - Runoff
+* <a href="https://cs50.harvard.edu/x/2023/psets/3/plurality/">Lab 3: Plurality</a>
 
+```Bash
+$ check50 cs50/problems/2023/x/plurality
+$ style50 plurality.c
+$ submit50 cs50/problems/2023/x/plurality
+```
+* <a href="https://submit.cs50.io/check50/f724b027b9de3566827fc8149d4552c721facdec">runoff check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/runoff">Result runoff</a>
+
+https://submit.cs50.io/check50/f724b027b9de3566827fc8149d4552c721facdec
 
 
 
