@@ -10,9 +10,9 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/3-week/problem/runoff/runoff",
 			"args": [
-				"Alice",
-				"Bob",
-				"Charlie"
+				"A",
+				"B",
+				"C"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -33,9 +33,9 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/3-week/problem/runoff/runoff",
 			"args": [
-				"Alice",
-				"Bob",
-				"Charlie"
+				"A",
+				"B",
+				"C"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",
