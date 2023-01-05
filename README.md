@@ -100,7 +100,23 @@ $ submit50 cs50/labs/2023/x/sort
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/sort">Result Sort</a>
 
 
-### Links
+## Week 3 - Plurality
+* <a href="https://cs50.harvard.edu/x/2023/psets/3/plurality/">Lab 3: Plurality</a>
+
+```Bash
+$ check50 cs50/problems/2023/x/plurality
+$ style50 plurality.c
+$ submit50 cs50/problems/2023/x/plurality
+```
+* <a href="https://submit.cs50.io/check50/14331eff95ad3b27e9c93531b8476319b6ae6862">Plurality check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/plurality">Result Plurality</a>
+
+
+
+
+
+
+
 
 
 
