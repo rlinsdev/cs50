@@ -8,11 +8,11 @@
 			"name": "Program", //I named it Pusk because i can
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/3-week/problem/runoff/runoff",
+			"program": "${workspaceRoot}/4-week/problem/filter-less/filter",
 			"args": [
-				"A",
-				"B",
-				"C"
+				"-b",
+				"./images/stadium.bmp",
+				"./images/blur/s.bmp"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -31,11 +31,11 @@
 			"name": "gdb",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/3-week/problem/runoff/runoff",
+			"program": "${workspaceRoot}/4-week/problem/filter-less/filter",
 			"args": [
-				"A",
-				"B",
-				"C"
+				"-b",
+				"./images/stadium.bmp",
+				"./images/blur/s.bmp"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",

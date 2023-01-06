@@ -36,7 +36,9 @@ int main(int argc, char *argv[])
     char *outfile = argv[optind + 1];
 
     // Open input file
-    FILE *inptr = fopen(infile, "r");
+    //TODO: To debug, must be full path
+    // FILE *inptr = fopen(infile, "r+");
+    FILE *inptr = fopen("/home/rlins/Projects/cs50-delivery/4-week/problem/filter-less/images/stadium.bmp", "r+");
     if (inptr == NULL)
     {
         printf("Could not open %s.\n", infile);
@@ -44,7 +46,9 @@ int main(int argc, char *argv[])
     }
 
     // Open output file
-    FILE *outptr = fopen(outfile, "w");
+    //TODO: To debug, must be full path
+    // FILE *outptr = fopen(outfile, "w");
+    FILE *outptr = fopen("/home/rlins/Projects/cs50-delivery/4-week/problem/filter-less/s.bmp", "w");
     if (outptr == NULL)
     {
         fclose(inptr);
