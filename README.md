@@ -134,8 +134,24 @@ $ submit50 cs50/labs/2023/x/smiley
 * <a href="https://submit.cs50.io/check50/7f39102f68489cd2f0445e61f66282ec6433d199">Smiley check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/smiley">Result Smiley</a>
 
+## Week 4 - filter-less
+* <a href="https://cs50.harvard.edu/x/2023/psets/4/filter/less/">Problem Set 4: filter less</a>
 
+```Bash
+$ check50 cs50/problems/2023/x/filter/less
+$ style50 helpers.c
+$ submit50 cs50/problems/2023/x/filter/less
+```
+```Bash
+$ make filter
+$ ./filter -g ./images/yard.bmp g.bmp
+$ ./filter -s ./images/INFILE.bmp OUTFILE.bmp
+$ ./filter -r ./images/INFILE.bmp OUTFILE.bmp
+$ ./filter -b ./images/yard.bmp 1.bmp
 
+```
+* <a href="XXXXX https://submit.cs50.io/check50/7f39102f68489cd2f0445e61f66282ec6433d199">Filter check50</a>
+* <a href="XXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/smiley">Result filter</a>
 
 
 
