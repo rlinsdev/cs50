@@ -183,3 +183,5 @@ F5
 * <a href="https://cs50.readthedocs.io/libraries/cs50/c/">CS50.h doc</a>
 * <a href="https://cs50.readthedocs.io/style50/">CS50 style</a>
 * <a href="https://cs50.readthedocs.io/github/">SSH/Token GitHub</a>
+* <a href="https://www.youtube.com/playlist?list=PLhQjrBD2T3837jmUt0ep7Tpmnxdv9NVut">CS50 - Week 4 playlist</a>
+*
