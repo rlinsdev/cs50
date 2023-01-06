@@ -98,7 +98,37 @@ static int sepia_new_blue(BYTE o_red, BYTE o_green, BYTE o_blue)
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    return;
+    int i_rev = height;
+    int j_rev = width;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            // Temp original colors
+            BYTE o_red = image[i][j].rgbtRed;
+            BYTE o_green = image[i][j].rgbtGreen;
+            BYTE o_blue = image[i][j].rgbtBlue;
+
+            // Change firsts pixels
+            image[i][j].rgbtRed = image[i_rev][j_rev-1].rgbtRed;
+            image[i][j].rgbtGreen = image[i_rev][j_rev-1].rgbtGreen;
+            image[i][j].rgbtBlue = image[i_rev][j_rev-1].rgbtBlue;
+
+            // Change last pixels
+            image[i_rev][j_rev-1].rgbtRed = o_red;
+            image[i_rev][j_rev-1].rgbtGreen = o_green;
+            image[i_rev][j_rev-1].rgbtBlue = o_blue;
+
+            j_rev--;
+
+            if (j <= j_rev)
+            {
+                break;
+            }
+
+		}
+        i_rev--;
+	}
 }
 
 // Blur image
@@ -109,14 +139,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            // Check all collor in black
-            if (image[i][j].rgbtRed == 0x00 && image[i][j].rgbtGreen == 0x00 && image[i][j].rgbtBlue == 0x00)
-            {
-                // I had got a color in hexa. Looks lik a blue.
-                image[i][j].rgbtRed = 0x75;
-                image[i][j].rgbtGreen = 0xE6;
-                image[i][j].rgbtBlue = 0xDA;
-            }
+
         }
     }
 }
