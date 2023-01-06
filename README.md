@@ -122,7 +122,19 @@ $ submit50 cs50/problems/2023/x/plurality
 * <a href="https://submit.cs50.io/check50/f724b027b9de3566827fc8149d4552c721facdec">runoff check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/runoff">Result runoff</a>
 
-https://submit.cs50.io/check50/f724b027b9de3566827fc8149d4552c721facdec
+
+## Week 4 - smiley
+* <a href="https://cs50.harvard.edu/x/2023/labs/4/smiley/#lab-4-smiley">Lab 4: Smiley</a>
+
+```Bash
+$ check50 cs50/labs/2023/x/smiley
+$ style50 helpers.c
+$ submit50 cs50/labs/2023/x/smiley
+```
+* <a href="https://submit.cs50.io/check50/7f39102f68489cd2f0445e61f66282ec6433d199">Smiley check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/smiley">Result Smiley</a>
+
+
 
 
 
