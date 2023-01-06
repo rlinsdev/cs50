@@ -98,37 +98,30 @@ static int sepia_new_blue(BYTE o_red, BYTE o_green, BYTE o_blue)
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    int i_rev = height;
-    int j_rev = width;
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < (int)(width / 2); j++)
         {
+            // Temp reflected colors
+            BYTE r_red = image[i][width-1-j].rgbtRed;
+            BYTE r_green = image[i][width-1-j].rgbtGreen;
+            BYTE r_blue = image[i][width-1-j].rgbtBlue;
+
             // Temp original colors
             BYTE o_red = image[i][j].rgbtRed;
             BYTE o_green = image[i][j].rgbtGreen;
             BYTE o_blue = image[i][j].rgbtBlue;
 
-            // Change firsts pixels
-            image[i][j].rgbtRed = image[i_rev][j_rev-1].rgbtRed;
-            image[i][j].rgbtGreen = image[i_rev][j_rev-1].rgbtGreen;
-            image[i][j].rgbtBlue = image[i_rev][j_rev-1].rgbtBlue;
+            image[i][j].rgbtRed = r_red;
+            image[i][width-1-j].rgbtRed = o_red;
 
-            // Change last pixels
-            image[i_rev][j_rev-1].rgbtRed = o_red;
-            image[i_rev][j_rev-1].rgbtGreen = o_green;
-            image[i_rev][j_rev-1].rgbtBlue = o_blue;
+            image[i][j].rgbtGreen = r_green;
+            image[i][width-1-j].rgbtGreen = o_green;
 
-            j_rev--;
-
-            if (j <= j_rev)
-            {
-                break;
-            }
-
-		}
-        i_rev--;
-	}
+            image[i][j].rgbtBlue = r_blue;
+            image[i][width-1-j].rgbtBlue = o_blue;
+        }
+    }
 }
 
 // Blur image
