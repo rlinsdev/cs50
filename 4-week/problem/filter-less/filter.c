@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     //TODO: To debug, must be full path
     FILE *inptr = fopen(infile, "r");
     // FILE *inptr = fopen("/home/rlins/Projects/cs50-delivery/4-week/problem/filter-less/images/stadium.bmp", "r+");
-    // FILE *inptr = fopen("/home/rlins/Projects/cs50-delivery/4-week/problem/filter-less/images/tower.bmp", "r");
+    // FILE *inptr = fopen("/home/rlins/Projects/cs50-delivery/4-week/problem/filter-less/images/3x3.bmp", "r");
     if (inptr == NULL)
     {
         printf("Could not open %s.\n", infile);
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     // Open output file
     //TODO: To debug, must be full path
     FILE *outptr = fopen(outfile, "w");
-    // FILE *outptr = fopen("/home/rlins/Projects/cs50-delivery/4-week/problem/filter-less/s2.bmp", "w");
+    // FILE *outptr = fopen("/home/rlins/Projects/cs50-delivery/4-week/problem/filter-less/3x3_new.bmp", "w");
     if (outptr == NULL)
     {
         fclose(inptr);
