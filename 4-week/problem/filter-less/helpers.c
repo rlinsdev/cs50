@@ -1,4 +1,6 @@
 #include "helpers.h"
+#include <stdio.h>
+#include <math.h>
 
 static int check_max_int(int result);
 static int sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue);
@@ -124,15 +126,102 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     }
 }
 
-// Blur image
+
+// void copy_array(int height, int width, RGBTRIPLE image[height][width])
+// {
+
+// }
+
+
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    // Instead for, inside the height and width
-    for (int i = 0; i < height; i++)
+    RGBTRIPLE copy[height][width];
+    for (int i = 0; i <= (height - 1); i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j <= (width - 1); j++)
         {
+            copy[i][j] = image[i][j];
+        }
+    }
+    // Instead for, inside the height and width
+    for (int i = 0; i <= (height - 1); i++)
+    {
+        for (int j = 0; j <= (width - 1); j++)
+        {
+            // red
+            int result = 0;
+            int sum = 0;
+            int count = 0;
+            for (int k = -1; k <= 1; k++)
+            {
+                if ((i + k) == -1 || (i + k) == (height + 1))
+                {
+                    continue;
+                }
+                for (int l = -1; l <= 1; l++)
+                {
+                    if ((j + l) == -1 || (j + l) > (width + 1))
+                        continue;
+                    result = copy[i + k][l + j].rgbtRed;
+                    sum += result;
+                    count ++;
+                }
+            }
+            if (count > 0 && sum > 0)
+            {
+                int calc =(int)(sum / count);
+                image[i][j].rgbtRed = calc;
+            }
 
+            // Green
+            result = 0;
+            sum = 0;
+            count = 0;
+            for (int k = -1; k <= 1; k++)
+            {
+                if ((i + k) == -1 || (i + k) == (height + 1))
+                {
+                    continue;
+                }
+                for (int l = -1; l <= 1; l++)
+                {
+                    if ((j + l) == -1 || (j + l) > (width + 1))
+                        continue;
+                    result = copy[i+k][l+j].rgbtGreen;
+                    sum += result;
+                    count ++;
+                }
+            }
+            if (count > 0 && sum > 0)
+            {
+                int calc =(int)(sum / count);
+                image[i][j].rgbtGreen = calc;
+            }
+
+            // Blue
+            result = 0;
+            sum = 0;
+            count = 0;
+            for (int k = -1; k <= 1; k++)
+            {
+                if ((i + k) == -1 || (i + k) == (height + 1))
+                {
+                    continue;
+                }
+                for (int l = -1; l <= 1; l++)
+                {
+                    if ((j + l) == -1 || (j + l) > (width + 1))
+                        continue;
+                    result = copy[i + k][l + j].rgbtBlue;
+                    sum += result;
+                    count ++;
+                }
+            }
+            if (count > 0 && sum > 0)
+            {
+                int calc =(int)(sum / count);
+                image[i][j].rgbtBlue = calc;
+            }
         }
     }
 }

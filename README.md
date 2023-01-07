@@ -167,12 +167,18 @@ $ ./filter -b ./images/yard.bmp 1.bmp
 
 
 ## Debug C - Intra
-`$ make mario`
+```Bash
+$ make mario
+$ debug50 ./mario
+```
 
-`$ debug50 ./mario`
 
 ## Debug C - Localhost
-`$ gcc -g mario.c -lcs50 -o mario`
+```Bash
+$ gcc -g mario.c -lcs50 -o mario
+$ gcc -g filter.c -lcs50 -o ./filter -b images/stadium.bmp ./s.bmp
+```
+
 
 F5
 
