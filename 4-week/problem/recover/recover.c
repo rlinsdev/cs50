@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (i < 0)
+            if (i > 0)
             {
                 fclose(img);
             }
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     }
     // free(buffer);
 
-    // fclose(img);
+    fclose(img);
     fclose(memory_card);
     return (0);
 }
