@@ -130,31 +130,34 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE copy[height][width];
+    // -1 because the index start with 0
     for (int i = 0; i <= (height - 1); i++)
     {
+        // -1 because the index start with 0
         for (int j = 0; j <= (width - 1); j++)
         {
             copy[i][j] = image[i][j];
         }
     }
-    // Instead for, inside the height and width
+    // -1 because the index start with 0
     for (int i = 0; i <= (height - 1); i++)
     {
+        // -1 because the index start with 0
         for (int j = 0; j <= (width - 1); j++)
         {
             // red
             int result = 0;
             int sum = 0;
-            float count = 0.0;
+            float count = 1.0;
             for (int k = -1; k <= 1; k++)
             {
-                if ((i + k) == -1 || (i + k) == (height + 1))
+                if ((i + k) == -1 || (i + k) == height)
                 {
                     continue;
                 }
                 for (int l = -1; l <= 1; l++)
                 {
-                    if ((j + l) == -1 || (j + l) > (width + 1))
+                    if ((j + l) == -1 || (j + l) == width)
                     {
                         continue;
                     }
@@ -163,26 +166,28 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     count ++;
                 }
             }
+            count --;
             // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                float calc = (roundf(sum / count));
-                image[i][j].rgbtRed = calc;
+                float calc = sum / count;
+                int final = (roundf(calc));
+                image[i][j].rgbtRed = final;
             }
 
             // Green
             result = 0;
             sum = 0;
-            count = 0;
+            count = 1.0;
             for (int k = -1; k <= 1; k++)
             {
-                if ((i + k) == -1 || (i + k) == (height + 1))
+                if ((i + k) == -1 || (i + k) == height)
                 {
                     continue;
                 }
                 for (int l = -1; l <= 1; l++)
                 {
-                    if ((j + l) == -1 || (j + l) > (width + 1))
+                    if ((j + l) == -1 || (j + l) == width)
                     {
                         continue;
                     }
@@ -191,28 +196,30 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     count ++;
                 }
             }
+            count --;
             // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                float calc = (roundf(sum / count));
-                image[i][j].rgbtGreen = calc;
+                float calc = sum / count;
+                int final = (roundf(calc));
+                image[i][j].rgbtGreen = final;
             }
 
             // Blue
             result = 0;
             sum = 0;
-            count = 0;
+            count = 1.0;
             for (int k = -1; k <= 1; k++)
             {
                 // Boards / inexistent pixels, just go to next
-                if ((i + k) == -1 || (i + k) == (height + 1))
+                if ((i + k) == -1 || (i + k) == height)
                 {
                     continue;
                 }
                 for (int l = -1; l <= 1; l++)
                 {
                     // Boards / inexistent pixels, just go to next
-                    if ((j + l) == -1 || (j + l) > (width + 1))
+                    if ((j + l) == -1 || (j + l) == width)
                     {
                         continue;
                     }
@@ -221,11 +228,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     count ++;
                 }
             }
+            count --;
             // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                float calc = (roundf(sum / count));
-                image[i][j].rgbtBlue = calc;
+                float calc = sum / count;
+                int final = (roundf(calc));
+                image[i][j].rgbtBlue = final;
             }
         }
     }
