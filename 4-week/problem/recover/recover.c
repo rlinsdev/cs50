@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 {
     validate_args(argc);
 
-    // string file_path = argv[1];
-    string file_path = "/home/rlins/Projects/cs50-delivery/4-week/problem/recover/card.raw";
+    string file_path = argv[1];
+    // string file_path = "/home/rlins/Projects/cs50-delivery/4-week/problem/recover/card.raw";
 
     // Open Memory card
     FILE *memory_card = get_file(file_path);
@@ -28,53 +28,36 @@ int main(int argc, char *argv[])
     // Read trunk of 512 bytes
     while (fread(buffer, 1, BLOCK_SIZE, memory_card) == BLOCK_SIZE)
     {
+        // All .jpg files
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
+            // Close previous file
             if (i > 0)
             {
                 fclose(img);
             }
-            // All .jpg files
+            // Generate a name
             sprintf(file_name, "%03i.jpg", i);
             img = fopen(file_name, "w");
             fwrite(buffer, BLOCK_SIZE, 1, img);
-            // fclose(img);
-
-            // write_file(i, file_name, buffer, img);
-
             i++;
-            // if (i == 5)
-            //     break;
         }
         else if (i > 0)
         {
+            // Add more data in file / more part of photos
             fwrite(buffer, BLOCK_SIZE, 1, img);
         }
     }
-    // free(buffer);
-
+    // Close objects
     fclose(img);
     fclose(memory_card);
     return (0);
 }
 
-void write_file(int i, char file_name[8], BYTE buffer[BLOCK_SIZE], FILE *img)
-{
-    // if (i > 0)
-    // {
-    //     fclose(img);
-    // }
-    sprintf(file_name, "%03i.jpg", i);
-    img = fopen(file_name, "w");
-    fwrite(buffer, BLOCK_SIZE, 1, img);
-    fclose(img);
-}
-
 /**
- * @brief Get the file object
- *
- * @param file_path
- * @return FILE*
+ * @brief Get File. Path passed by param, in argv
+ * @param file_path Path of file to analyze
+ * @return FILE* object
  */
 static FILE *get_file(string file_path)
 {
@@ -88,9 +71,8 @@ static FILE *get_file(string file_path)
 }
 
 /**
- * @brief
- *
- * @param argc
+ * @brief Validate params
+ * @param argc Arg count
  */
 static void validate_args(int argc)
 {
@@ -100,4 +82,3 @@ static void validate_args(int argc)
         exit(1);
     }
 }
-
