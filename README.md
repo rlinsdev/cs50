@@ -153,8 +153,19 @@ $ ./filter -b ./images/yard.bmp 1.bmp
 * <a href="https://submit.cs50.io/check50/9f42074d0fb2adcef1884af9eaf1b3c270f175c4">Filter check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/filter/less">Result filter</a>
 
+## Week 4 - Recover
+* <a href="https://cs50.harvard.edu/x/2023/psets/4/recover/">Problem Set 4: Recover</a>
 
-
+```Bash
+$ check50 cs50/problems/2023/x/recover
+$ style50 recover.c
+$ submit50 cs50/problems/2023/x/recover
+```
+```Bash
+$ ./recover card.raw
+```
+* <a href="xxxxxxxhttps://submit.cs50.io/check50/9f42074d0fb2adcef1884af9eaf1b3c270f175c4">Recover check50</a>
+* <a href="xxxxxxxxxhttps://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/filter/less">Result recover</a>
 
 
 
