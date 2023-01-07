@@ -1,6 +1,5 @@
 #include "helpers.h"
 #include <stdio.h>
-#include <math.h>
 
 static int check_max_int(int result);
 static int sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue);
@@ -26,7 +25,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
-        // Instead for, inside the height and width
+    // Instead for, inside the height and width
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -39,7 +38,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             // Call methods to change color
             image[i][j].rgbtRed = sepia_new_red(o_red, o_green, o_blue);
             image[i][j].rgbtGreen = sepia_new_green(o_red, o_green, o_blue);
-            image[i][j].rgbtBlue =sepia_new_blue(o_red, o_green, o_blue);
+            image[i][j].rgbtBlue = sepia_new_blue(o_red, o_green, o_blue);
         }
     }
 }
@@ -105,9 +104,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < (int)(width / 2); j++)
         {
             // Temp reflected colors
-            BYTE r_red = image[i][width-1-j].rgbtRed;
-            BYTE r_green = image[i][width-1-j].rgbtGreen;
-            BYTE r_blue = image[i][width-1-j].rgbtBlue;
+            BYTE r_red = image[i][width - 1 - j].rgbtRed;
+            BYTE r_green = image[i][width - 1 - j].rgbtGreen;
+            BYTE r_blue = image[i][width - 1 - j].rgbtBlue;
 
             // Temp original colors
             BYTE o_red = image[i][j].rgbtRed;
@@ -115,23 +114,16 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             BYTE o_blue = image[i][j].rgbtBlue;
 
             image[i][j].rgbtRed = r_red;
-            image[i][width-1-j].rgbtRed = o_red;
+            image[i][width - 1 - j].rgbtRed = o_red;
 
             image[i][j].rgbtGreen = r_green;
-            image[i][width-1-j].rgbtGreen = o_green;
+            image[i][width - 1 - j].rgbtGreen = o_green;
 
             image[i][j].rgbtBlue = r_blue;
-            image[i][width-1-j].rgbtBlue = o_blue;
+            image[i][width - 1 - j].rgbtBlue = o_blue;
         }
     }
 }
-
-
-// void copy_array(int height, int width, RGBTRIPLE image[height][width])
-// {
-
-// }
-
 
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -161,15 +153,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int l = -1; l <= 1; l++)
                 {
                     if ((j + l) == -1 || (j + l) > (width + 1))
+                    {
                         continue;
+                    }
                     result = copy[i + k][l + j].rgbtRed;
                     sum += result;
                     count ++;
                 }
             }
+            // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                int calc =(int)(sum / count);
+                int calc = (int)(sum / count);
                 image[i][j].rgbtRed = calc;
             }
 
@@ -186,15 +181,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int l = -1; l <= 1; l++)
                 {
                     if ((j + l) == -1 || (j + l) > (width + 1))
+                    {
                         continue;
-                    result = copy[i+k][l+j].rgbtGreen;
+                    }
+                    result = copy[i + k][l + j].rgbtGreen;
                     sum += result;
                     count ++;
                 }
             }
+            // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                int calc =(int)(sum / count);
+                int calc = (int)(sum / count);
                 image[i][j].rgbtGreen = calc;
             }
 
@@ -204,22 +202,27 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             count = 0;
             for (int k = -1; k <= 1; k++)
             {
+                // Boards / inexistent pixels, just go to next
                 if ((i + k) == -1 || (i + k) == (height + 1))
                 {
                     continue;
                 }
                 for (int l = -1; l <= 1; l++)
                 {
+                    // Boards / inexistent pixels, just go to next
                     if ((j + l) == -1 || (j + l) > (width + 1))
+                    {
                         continue;
+                    }
                     result = copy[i + k][l + j].rgbtBlue;
                     sum += result;
                     count ++;
                 }
             }
+            // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                int calc =(int)(sum / count);
+                int calc = (int)(sum / count);
                 image[i][j].rgbtBlue = calc;
             }
         }
