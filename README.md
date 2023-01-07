@@ -164,8 +164,8 @@ $ submit50 cs50/problems/2023/x/recover
 ```Bash
 $ ./recover card.raw
 ```
-* <a href="xxxxxxxhttps://submit.cs50.io/check50/9f42074d0fb2adcef1884af9eaf1b3c270f175c4">Recover check50</a>
-* <a href="xxxxxxxxxhttps://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/filter/less">Result recover</a>
+* <a href="https://submit.cs50.io/check50/6a3561ecb2440fcf0287666f5d9ba97e50eb7afa">Recover check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/recover">Result recover</a>
 
 
 
