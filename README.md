@@ -150,8 +150,8 @@ $ ./filter -r ./images/INFILE.bmp OUTFILE.bmp
 $ ./filter -b ./images/yard.bmp 1.bmp
 
 ```
-* <a href="XXXXX https://submit.cs50.io/check50/7f39102f68489cd2f0445e61f66282ec6433d199">Filter check50</a>
-* <a href="XXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/smiley">Result filter</a>
+* <a href="https://submit.cs50.io/check50/9f42074d0fb2adcef1884af9eaf1b3c270f175c4">Filter check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/filter/less">Result filter</a>
 
 
 
