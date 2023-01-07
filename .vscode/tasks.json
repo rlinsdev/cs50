@@ -4,10 +4,10 @@
             "type": "cppbuild",
             "label": "C/C++: gcc build active file",
             "command": "/usr/bin/gcc -g -lcs50",
-            "command": "make",
-            "args": [
-                "run"
-            ],
+            // "command": "make",
+            // "args": [
+            //     "run"
+            // ],
             "options": {
                 "cwd": "${fileDirname}"
             },
