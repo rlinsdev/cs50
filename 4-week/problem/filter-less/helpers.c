@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <math.h>
 
-static int check_max_int(int result);
-static int sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue);
-static int sepia_new_green(BYTE o_red, BYTE o_green, BYTE o_blue);
-static int sepia_new_blue(BYTE o_red, BYTE o_green, BYTE o_blue);
+static float check_max_int(float result);
+static float sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue);
+static float sepia_new_green(BYTE o_red, BYTE o_green, BYTE o_blue);
+static float sepia_new_blue(BYTE o_red, BYTE o_green, BYTE o_blue);
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -47,9 +47,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 /**
  * @brief Verify if the calc. is greater than 255. Max size is 255
  * @param result Value to check
- * @return int. Max 255
+ * @return float. Max 255
  */
-static int check_max_int(int result)
+static float check_max_int(float result)
 {
     if (result > 255)
     {
@@ -63,11 +63,11 @@ static int check_max_int(int result)
  * @param o_red Original color Red
  * @param o_green Original color Green
  * @param o_blue Original color Blue
- * @return int value. Max of 255
+ * @return float value. Max of 255
  */
-static int sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue)
+static float sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue)
 {
-    int result = (int)(0.393 * o_red) + (0.769 * o_green) + (0.189 * o_blue);
+    float result = roundf((0.393 * o_red) + (0.769 * o_green) + (0.189 * o_blue));
     return check_max_int(result);
 }
 
@@ -76,11 +76,12 @@ static int sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue)
  * @param o_red Original color Red
  * @param o_green Original color Green
  * @param o_blue Original color Blue
- * @return int value. Max of 255
+ * @return float value. Max of 255
  */
-static int sepia_new_green(BYTE o_red, BYTE o_green, BYTE o_blue)
+static float sepia_new_green(BYTE o_red, BYTE o_green, BYTE o_blue)
 {
-    int result = (int)(0.349 * o_red) + (0.686 * o_green) + (0.168 * o_blue);
+
+    float result = roundf((0.349 * o_red) + (0.686 * o_green) + (0.168 * o_blue));
     return check_max_int(result);
 }
 
@@ -89,11 +90,11 @@ static int sepia_new_green(BYTE o_red, BYTE o_green, BYTE o_blue)
  * @param o_red Original color Red
  * @param o_green Original color Green
  * @param o_blue Original color Blue
- * @return int value. Max of 255
+ * @return float value. Max of 255
  */
-static int sepia_new_blue(BYTE o_red, BYTE o_green, BYTE o_blue)
+static float sepia_new_blue(BYTE o_red, BYTE o_green, BYTE o_blue)
 {
-    int result = (int)(0.272 * o_red) + (0.534 * o_green) + (0.131 * o_blue);
+    float result = roundf((0.272 * o_red) + (0.534 * o_green) + (0.131 * o_blue));
     return check_max_int(result);
 }
 
@@ -144,7 +145,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // red
             int result = 0;
             int sum = 0;
-            int count = 0;
+            float count = 0.0;
             for (int k = -1; k <= 1; k++)
             {
                 if ((i + k) == -1 || (i + k) == (height + 1))
@@ -165,7 +166,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                int calc = (int)(sum / count);
+                float calc = (roundf(sum / count));
                 image[i][j].rgbtRed = calc;
             }
 
@@ -193,7 +194,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                int calc = (int)(sum / count);
+                float calc = (roundf(sum / count));
                 image[i][j].rgbtGreen = calc;
             }
 
@@ -223,7 +224,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Update pixel with new average
             if (count > 0 && sum > 0)
             {
-                int calc = (int)(sum / count);
+                float calc = (roundf(sum / count));
                 image[i][j].rgbtBlue = calc;
             }
         }
