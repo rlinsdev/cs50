@@ -1,5 +1,6 @@
 #include "helpers.h"
 #include <stdio.h>
+#include <math.h>
 
 static int check_max_int(int result);
 static int sepia_new_red(BYTE o_red, BYTE o_green, BYTE o_blue);
@@ -14,7 +15,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int mix = (image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3;
+            int mix = roundf((image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3.0);
             image[i][j].rgbtRed = mix;
             image[i][j].rgbtGreen  = mix;
             image[i][j].rgbtBlue = mix;
