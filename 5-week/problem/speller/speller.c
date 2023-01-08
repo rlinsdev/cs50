@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 
     // Determine dictionary to use
     char *dictionary = (argc == 3) ? argv[1] : DICTIONARY;
+    //TODO:Lins - To debug
+    dictionary = "/home/rlins/Projects/cs50-delivery/5-week/problem/speller/dictionaries/small";
 
     // Load dictionary
     getrusage(RUSAGE_SELF, &before);
