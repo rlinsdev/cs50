@@ -20,6 +20,7 @@ person *create_family(int generations);
 void print_family(person *p, int generation);
 void free_family(person *p);
 char random_allele();
+char random_allele_par(char all1, char all2);
 
 int main(void)
 {
@@ -40,7 +41,7 @@ int main(void)
 person *create_family(int generations)
 {
     // *TODO: Allocate memory for new person
-    person *new_person = (struct person*)malloc(sizeof(struct person));
+    person *new_person = (struct person *)malloc(sizeof(struct person));
 
     // If there are still generations left to create
     if (generations > 1)
@@ -55,13 +56,13 @@ person *create_family(int generations)
             if (i == 0)
             {
                 new_person->parents[i] = parent0;
+                new_person->alleles[i] = random_allele_par(parent0->alleles[0], parent0->alleles[1]);
             }
             else
             {
                 new_person->parents[i] = parent1;
+                new_person->alleles[i] = random_allele_par(parent1->alleles[0], parent1->alleles[1]);
             }
-            // *TODO: Randomly assign current person's alleles based on the alleles of their parents
-            new_person->alleles[i] = random_allele();
         }
     }
     // If there are no generations left to create
@@ -82,6 +83,7 @@ person *create_family(int generations)
 // Free `p` and all ancestors of `p`.
 void free_family(person *p)
 {
+    // *TODO: Handle base case
     if (p == NULL)
     {
         return ;
@@ -131,6 +133,19 @@ void print_family(person *p, int generation)
     // Print parents of current generation
     print_family(p->parents[0], generation + 1);
     print_family(p->parents[1], generation + 1);
+}
+
+char random_allele_par(char all1, char all2)
+{
+    int r = rand() % 2;
+    if (r == 0)
+    {
+        return all1;
+    }
+    else
+    {
+        return all2;
+    }
 }
 
 // Randomly chooses a blood type allele.

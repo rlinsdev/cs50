@@ -179,8 +179,8 @@ $ submit50 cs50/labs/2023/x/inheritance
 ```Bash
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./inheritance
 ```
-* <a href="xxxxxxxx https://submit.cs50.io/check50/6a3561ecb2440fcf0287666f5d9ba97e50eb7afa">Recover check50</a>
-* <a href="xxxxxxxxx https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/recover">Result recover</a>
+* <a href="https://submit.cs50.io/check50/b2fd80180bc8272b358971443db25b5500f93d4b">Recover check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/inheritance">Result recover</a>
 
 
 
