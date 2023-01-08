@@ -14,11 +14,13 @@ typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
+    long int size;
 }
 node;
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
+unsigned int g_count = 0;
 
 // Hash table
 node *table[N];
@@ -33,6 +35,7 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
+    // TODO: Provavelmente terá q ser tratado 2 letras aqui
     // TODO 2: Improve this hash function
     return toupper(word[0]) - 'A';
 }
@@ -54,20 +57,29 @@ bool load(const char *dictionary)
             exit(3);
         }
         n->next = NULL;
-        strcpy(n->word, word);
-
-        if (table[(int)word[0]] == NULL)
+        // strcpy(n->word, word);
+        strncpy(n->word, word, strlen(word));
+        // Get Hash Code
+        unsigned int hash_code = hash(&word[0]);
+        // if Table does not contain this hash code
+        if (table[hash_code] == NULL)
         {
-            table[(int)word[0]] = n;
+            // Just add node
+            table[hash_code] = n;
         }
         else
         {
+            // Add node in the begin.
             node *aux = malloc(sizeof(node));
-            aux = table[(int)word[0]];
-            table[(int)word[0]] = n;
+            aux = table[hash_code];
+            table[hash_code] = n;
+            // Fixing the appointment
             n->next = aux;
-            free(aux);
+            // free(aux); // TODO: Ver se posso desalocar aqui mesmo.
         }
+        g_count++;
+
+        // free(n); // TODO: Ver se posso desalocar aqui mesmo.
     }
 
     /**
@@ -107,13 +119,13 @@ static FILE *get_file(const char *file_path)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO 3
-    return 0;
+    return(g_count);
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
+
     // TODO 5
     return false;
 }
