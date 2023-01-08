@@ -65,7 +65,7 @@ static FILE *get_file(string file_path)
     if (memory_card == NULL)
     {
         printf("Could not open %s\n", file_path);
-        exit(2);
+        exit(1);
     }
     return memory_card;
 }

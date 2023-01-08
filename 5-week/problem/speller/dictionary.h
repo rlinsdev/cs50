@@ -4,6 +4,9 @@
 #define DICTIONARY_H
 
 #include <stdbool.h>
+struct _IO_FILE;
+/* The opaque type of streams.  This is the definition used elsewhere.  */
+typedef struct _IO_FILE FILE;
 
 // Maximum length for a word
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
