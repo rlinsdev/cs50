@@ -47,16 +47,36 @@ bool load(const char *dictionary)
 
     while(fscanf(dic_file, "%s", word) != EOF)
     {
-        printf("oi");
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            printf("Allocate memory problem");
+            exit(3);
+        }
+        n->next = NULL;
+        strcpy(n->word, word);
+
+        if (table[(int)word[0]] == NULL)
+        {
+            table[(int)word[0]] = n;
+        }
+        else
+        {
+            node *aux = malloc(sizeof(node));
+            aux = table[(int)word[0]];
+            table[(int)word[0]] = n;
+            n->next = aux;
+            free(aux);
+        }
     }
 
     /**
-    1) Load dictionary file
-    2) Read strings from file one at a time
-    3) Create a new node for each word
+    **1) Load dictionary file
+    **2) Read strings from file one at a time
+    **3) Create a new node for each word
     4) 'hash word to obtain a hash value'?
     5) 'insert node into hash table at that location'
-    2 Load in a hash table
+
     Hash Table. A B C
     "Will return if this is in 'A' linked list, or in 'B' link list"
      */
