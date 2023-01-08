@@ -168,7 +168,19 @@ $ ./recover card.raw
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/recover">Result recover</a>
 
 
+## Week 5 - Inheritance
+* <a href="https://cs50.harvard.edu/x/2023/labs/5/">Lab 5: Inheritance</a>
 
+```Bash
+$ check50 cs50/labs/2023/x/inheritance
+$ style50 inheritance.c
+$ submit50 cs50/labs/2023/x/inheritance
+```
+```Bash
+
+```
+* <a href="xxxxxxxx https://submit.cs50.io/check50/6a3561ecb2440fcf0287666f5d9ba97e50eb7afa">Recover check50</a>
+* <a href="xxxxxxxxx https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/recover">Result recover</a>
 
 
 
