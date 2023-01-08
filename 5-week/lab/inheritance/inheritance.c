@@ -39,7 +39,8 @@ int main(void)
 // Create a new individual with `generations`
 person *create_family(int generations)
 {
-    // TODO: Allocate memory for new person
+    // *TODO: Allocate memory for new person
+    person *new_person = (struct person*)malloc(sizeof(struct person));
 
     // If there are still generations left to create
     if (generations > 1)
@@ -48,34 +49,50 @@ person *create_family(int generations)
         person *parent0 = create_family(generations - 1);
         person *parent1 = create_family(generations - 1);
 
-        // TODO: Set parent pointers for current person
-
-        // TODO: Randomly assign current person's alleles based on the alleles of their parents
-
+        for (int i = 0; i < 2; i++)
+        {
+            // *TODO: Set parent pointers for current person
+            if (i == 0)
+            {
+                new_person->parents[i] = parent0;
+            }
+            else
+            {
+                new_person->parents[i] = parent1;
+            }
+            // *TODO: Randomly assign current person's alleles based on the alleles of their parents
+            new_person->alleles[i] = random_allele();
+        }
     }
-
     // If there are no generations left to create
     else
     {
-        // TODO: Set parent pointers to NULL
-
-        // TODO: Randomly assign alleles
-
+        for (int i = 0; i < 2; i++)
+        {
+            // *TODO: Set parent pointers to NULL
+            new_person->parents[i] = NULL;
+            // *TODO: Randomly assign alleles
+            new_person->alleles[i] = random_allele();
+        }
     }
-
-    // TODO: Return newly created person
-    return NULL;
+    // *TODO: Return newly created person
+    return (new_person);
 }
 
 // Free `p` and all ancestors of `p`.
 void free_family(person *p)
 {
-    // TODO: Handle base case
+    if (p == NULL)
+    {
+        return ;
+    }
+    // *TODO: Free parents recursively
+    // Call Recursively free pointers
+    free_family(p->parents[0]);
+    free_family(p->parents[1]);
 
-    // TODO: Free parents recursively
-
-    // TODO: Free child
-
+    free(p);
+    p = NULL;
 }
 
 // Print each family member and their alleles.
