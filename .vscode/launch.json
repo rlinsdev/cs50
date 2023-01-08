@@ -8,9 +8,9 @@
 			"name": "Program", //I named it Pusk because i can
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/5-week/lab/inheritance/inheritance",
+			"program": "${workspaceRoot}/5-week/problem/speller/speller",
 			"args": [
-				// "./card.raw"
+				"texts/lalaland.txt"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -29,9 +29,9 @@
 			"name": "gdb",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/5-week/lab/inheritance/inheritance",
+			"program": "${workspaceRoot}/5-week/problem/speller/speller",
 			"args": [
-				// "./card.raw"
+				"texts/lalaland.txt"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",
