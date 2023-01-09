@@ -54,6 +54,9 @@ int main(int argc, char *argv[])
 
     // Try to open text
     char *text = (argc == 3) ? argv[2] : argv[1];
+    // FILE *file = fopen(text, "r");
+      //TODO:Lins - To debug
+    text = "/home/rlins/Projects/cs50-delivery/5-week/problem/speller/dictionaries/small";
     FILE *file = fopen(text, "r");
     if (file == NULL)
     {
