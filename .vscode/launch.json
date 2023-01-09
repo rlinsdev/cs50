@@ -10,8 +10,8 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/5-week/problem/speller/speller",
 			"args": [
-                "dictionaries/small",
-				"texts/wordsworth.txt"
+                "dictionaries/large",
+				"texts/cat.txt"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -32,8 +32,8 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/5-week/problem/speller/speller",
 			"args": [
-                "dictionaries/small",
-				"texts/wordsworth.txt"
+                "dictionaries/large",
+				"texts/cat.txt"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",

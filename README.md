@@ -186,21 +186,43 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./inheri
 * <a href="https://cs50.harvard.edu/x/2023/psets/5/speller">Lab 5: Speller</a>
 
 ```Bash
-$ XXXXXXXX check50 cs50/labs/2023/x/inheritance
-$ XXXXXXXX style50 inheritance.c
-$ XXXXXXXX submit50 cs50/labs/2023/x/inheritance
+$ check50 cs50/problems/2023/x/speller
+$ style50 dictionary.c
+$ submit50 cs50/problems/2023/x/speller
 ```
 ```Bash
+# Small dic - Redirect to file to compare - wordsworth
 ./speller dictionaries/small texts/wordsworth.txt > student.txt
 ./speller50 dictionaries/small texts/wordsworth.txt > staff.txt
+# large dic - Redirect to file to compare - wordsworth
+./speller dictionaries/large texts/wordsworth.txt > student.txt
+./speller50 dictionaries/large texts/wordsworth.txt > staff.txt
+# Small dic - Redirect to file to compare - Birdman
+./speller dictionaries/large texts/birdman.txt > student.txt
+./speller50 dictionaries/large texts/birdman.txt > staff.txt
+# Simple Tests in prompt
+./speller50 texts/lalaland.txt
+./speller texts/lalaland.txt
+./speller texts/wordsworth.txt
+# Valgrind tests
+valgrind ./speller50 texts/lalaland.txt
+valgrind ./speller texts/lalaland.txt
+valgrind ./speller50 texts/wordsworth.txt
+valgrind ./speller texts/wordsworth.txt
 
-XXXXXXX valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./inheritance
-xxxxxx help50 valgrind ./speller texts/cat.txt
+./speller texts/cat.txt
+valgrind ./speller texts/cat.txt
+
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./speller texts/cat.txt
+
+valgrind ./speller texts/cat.txt
+valgrind ./speller dictionaries/small texts/cat.txt
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./speller dictionaries/small texts/cat.txt
 
 
 ```
-* <a href="XXXXXXXXX https://submit.cs50.io/check50/b2fd80180bc8272b358971443db25b5500f93d4b">Speller check50</a>
-* <a href="XXXXXXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/inheritance">Result Speller</a>
+* <a href="https://submit.cs50.io/check50/2e42321c6536d481ac5d1a8885d78793830e615d">Speller check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/speller">Result Speller</a>
 
 
 

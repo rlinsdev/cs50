@@ -45,14 +45,6 @@ bool check(const char *word)
     return (false);
 }
 
-void init_table()
-{
-    for (int i = 0; i < N; i++)
-    {
-        table[i] = NULL;
-    }
-}
-
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
@@ -92,7 +84,6 @@ bool load(const char *dictionary)
         fclose(dic_file);
         return (false);
     }
-    init_table();
     char word[LENGTH + 1];
 
     // Read while diff EndOfFile
@@ -106,6 +97,7 @@ bool load(const char *dictionary)
         }
         n->next = NULL;
 
+        // This cost to me too much time... Just copy this way... Make it simple...
         strcpy(n->word, word);
         // Get Hash Code
         unsigned int hash_code = hash(&word[0]);
@@ -148,7 +140,11 @@ unsigned int size(void)
     return (g_count);
 }
 
-void    free_ptr(void *ptr)
+/**
+ * @brief Structure to free pointer
+ * @param ptr Pointer to be freed
+ */
+void free_ptr(void *ptr)
 {
     if (ptr)
     {
