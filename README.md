@@ -218,12 +218,26 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./spelle
 valgrind ./speller texts/cat.txt
 valgrind ./speller dictionaries/small texts/cat.txt
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./speller dictionaries/small texts/cat.txt
-
-
 ```
 * <a href="https://submit.cs50.io/check50/2e42321c6536d481ac5d1a8885d78793830e615d">Speller check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/speller">Result Speller</a>
 
+
+
+## Week 6 - Python
+* <a href="https://cs50.harvard.edu/x/2023/labs/6/">Lab 6: World cup</a>
+
+```Bash
+$ check50 cs50/labs/2023/x/worldcup
+$ style50 tournament.py
+$ submit50 cs50/labs/2023/x/worldcup
+```
+```Bash
+# to debug: Open just the folder labs, run with F5
+XXXXXXXXXXXXXXXXXX valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./inheritance
+```
+* <a href="XXXXXXXXXXX https://submit.cs50.io/check50/b2fd80180bc8272b358971443db25b5500f93d4b">Recover check50</a>
+* <a href="XXXXXXXXXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/inheritance">Result recover</a>
 
 
 
