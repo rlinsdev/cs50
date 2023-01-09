@@ -19,7 +19,7 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 650;
 unsigned int g_count = 0;
 
 // Hash table
@@ -32,7 +32,7 @@ bool check(const char *word)
 
     while (aux)
     {
-        // 0 is equivalent
+        // strcasecmp: 0 is equivalent
         if (strcasecmp(aux->word, word) == 0)
         {
             return (true);
@@ -40,14 +40,58 @@ bool check(const char *word)
         aux = aux->next;
     }
     return (false);
-    // return (table[hash(toupper(word))] == NULL);
 }
 
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Provavelmente terá q ser tratado 2 letras aqui
-    return toupper(word[0]) - 'A';
+    // int index = 0;
+    // for (int i = 'A'; i < 'Z'; i++)
+    // {
+    //     index ++;
+    //     printf("%c: %i\n",i, index);
+    // }
+    // for (int i = 'A'; i < 'Z'; i++)
+    // {
+    //     for (int j = 'A'; j < 'Z'; j++)
+    //     {
+    //         index ++;
+    //         printf("%c%c: %i\n",i, j, index);
+    //     }
+    // }
+
+    int result = 0;
+    int i = 0;
+    while (word[i] && i < 2)
+    {
+        if (!word[i+1])
+        {
+            result = toupper(word[0]) - 'A';
+            break;
+        }
+        else
+        {
+            if (i == 0)
+            {
+                result = (toupper(word[i]) - 'A') * 25;
+            }
+            else
+            {
+                result += (toupper(word[i]) - 'A') + 26;
+                // result += 25;
+            }
+        }
+        i++;
+        // if (i == 0)
+        // {
+        //     result = toupper(word[0]) - 'A' * 26;
+        // }
+        // else
+        // {
+        //     result += result + toupper(word[0]) - 'A';
+        // }
+    }
+    return result;
 }
 
 static FILE *get_file(const char *file_path);
@@ -61,13 +105,13 @@ bool load(const char *dictionary)
     }
     char word[LENGTH + 1];
 
+    // Read while diff EndOfFile
     while(fscanf(dic_file, "%s", word) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
             printf("Allocate memory problem");
-            // exit(3);
             return (false);
         }
         n->next = NULL;
@@ -122,9 +166,7 @@ bool unload(void)
 {
     bool result = false;
     for(int i = 0; i < N; i++)
-    // for (int i = 'a'; i < 'z'; i++)
     {
-        // const char *c = (const char *)&i;
         if (table[i])
         {
             while (table[i])
