@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     // Determine dictionary to use
     char *dictionary = (argc == 3) ? argv[1] : DICTIONARY;
     //TODO:Lins - To debug
-    dictionary = "/home/rlins/Projects/cs50-delivery/5-week/problem/speller/dictionaries/small";
+    // dictionary = "/home/rlins/Projects/cs50-delivery/5-week/problem/speller/dictionaries/small";
 
     // Load dictionary
     getrusage(RUSAGE_SELF, &before);
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     char *text = (argc == 3) ? argv[2] : argv[1];
     // FILE *file = fopen(text, "r");
       //TODO:Lins - To debug
-    text = "/home/rlins/Projects/cs50-delivery/5-week/problem/speller/dictionaries/small";
+    // text = "/home/rlins/Projects/cs50-delivery/5-week/problem/speller/texts/wordsworth.txt";
     FILE *file = fopen(text, "r");
     if (file == NULL)
     {
