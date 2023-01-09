@@ -121,18 +121,22 @@ unsigned int size(void)
 bool unload(void)
 {
     bool result = false;
-    for (int i = 'a'; i < 'z'; i++)
+    for(int i = 0; i < N; i++)
+    // for (int i = 'a'; i < 'z'; i++)
     {
-        const char *c = (const char *)&i;
-        if (check(c))
+        // const char *c = (const char *)&i;
+        if (table[i])
         {
             while (table[i])
             {
                 node *temp = table[i];
                 free(temp);
+                temp = NULL;
                 table[i] = table[i]->next;
             }
             result = true;
+            free(table[i]);
+            table[i] = NULL;
         }
     }
     return (result);
