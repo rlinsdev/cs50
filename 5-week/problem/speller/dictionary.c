@@ -4,7 +4,6 @@
 #include <string.h>
 #include <strings.h>
 #include <cs50.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -48,16 +47,18 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Provavelmente terá q ser tratado 2 letras aqui
-    // TODO 2: Improve this hash function
     return toupper(word[0]) - 'A';
 }
 
 static FILE *get_file(const char *file_path);
-// Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
+    // Get the file
     FILE *dic_file = get_file(dictionary);
-
+    if (dic_file == NULL)
+    {
+        return (false);
+    }
     char word[LENGTH + 1];
 
     while(fscanf(dic_file, "%s", word) != EOF)
@@ -66,15 +67,16 @@ bool load(const char *dictionary)
         if (n == NULL)
         {
             printf("Allocate memory problem");
-            exit(3);
+            // exit(3);
+            return (false);
         }
         n->next = NULL;
         // strcpy(n->word, word);
         strncpy(n->word, word, strlen(word));
         // Get Hash Code
         unsigned int hash_code = hash(&word[0]);
-        // if Table does not contain this hash code
-        if (check(&word[0]))
+        // Verify is this is the first register in hash table
+        if (table[hash_code] == NULL)
         {
             // Just add node
             table[hash_code] = n;
@@ -87,29 +89,10 @@ bool load(const char *dictionary)
             table[hash_code] = n;
             // Fixing the appointment
             n->next = aux;
-            // free(aux); // TODO: Ver se posso desalocar aqui mesmo.
         }
         g_count++;
-
-        // free(n); // TODO: Ver se posso desalocar aqui mesmo.
     }
-
-    /**
-    **1) Load dictionary file
-    **2) Read strings from file one at a time
-    **3) Create a new node for each word
-    4) 'hash word to obtain a hash value'?
-    5) 'insert node into hash table at that location'
-
-    Hash Table. A B C
-    "Will return if this is in 'A' linked list, or in 'B' link list"
-     */
-
-    // node *n = malloc(sizeof(node));
-    // strcpy(n->word, "Hello");
-    // n->next = NULL;
-
-    return false;
+    return (true);
 }
 
 /**
