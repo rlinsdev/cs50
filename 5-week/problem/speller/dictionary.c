@@ -137,7 +137,20 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-
-    // TODO 5
-    return false;
+    bool result = false;
+    for (int i = 'a'; i < 'z'; i++)
+    {
+        const char *c = (const char *)&i;
+        if (check(c))
+        {
+            while (table[i])
+            {
+                node *temp = table[i];
+                free(temp);
+                table[i] = table[i]->next;
+            }
+            result = true;
+        }
+    }
+    return (result);
 }
