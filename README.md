@@ -191,7 +191,13 @@ $ XXXXXXXX style50 inheritance.c
 $ XXXXXXXX submit50 cs50/labs/2023/x/inheritance
 ```
 ```Bash
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./inheritance
+./speller dictionaries/small texts/wordsworth.txt > student.txt
+./speller50 dictionaries/small texts/wordsworth.txt > staff.txt
+
+XXXXXXX valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./inheritance
+xxxxxx help50 valgrind ./speller texts/cat.txt
+
+
 ```
 * <a href="XXXXXXXXX https://submit.cs50.io/check50/b2fd80180bc8272b358971443db25b5500f93d4b">Speller check50</a>
 * <a href="XXXXXXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/inheritance">Result Speller</a>

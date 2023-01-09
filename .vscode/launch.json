@@ -10,7 +10,8 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/5-week/problem/speller/speller",
 			"args": [
-				"texts/lalaland.txt"
+                "dictionaries/small",
+				"texts/wordsworth.txt"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -31,7 +32,8 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/5-week/problem/speller/speller",
 			"args": [
-				"texts/lalaland.txt"
+                "dictionaries/small",
+				"texts/wordsworth.txt"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceRoot}",
