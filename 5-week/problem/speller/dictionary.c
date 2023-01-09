@@ -9,6 +9,9 @@
 
 #include "dictionary.h"
 
+void free_ptr(void *ptr);
+void init_table();
+
 // Represents a node in a hash table
 typedef struct node
 {
@@ -18,7 +21,7 @@ typedef struct node
 }
 node;
 
-// TODO: Choose number of buckets in hash table
+// 25x25
 const unsigned int N = 650;
 unsigned int g_count = 0;
 
@@ -33,13 +36,21 @@ bool check(const char *word)
     while (aux)
     {
         // strcasecmp: 0 is equivalent
-        if (strcasecmp(aux->word, word) == 0)
+        if (strcasecmp(word, aux->word) == 0)
         {
             return (true);
         }
         aux = aux->next;
     }
     return (false);
+}
+
+void init_table()
+{
+    for (int i = 0; i < N; i++)
+    {
+        table[i] = NULL;
+    }
 }
 
 // Hashes word to a number
@@ -78,8 +89,10 @@ bool load(const char *dictionary)
     FILE *dic_file = get_file(dictionary);
     if (dic_file == NULL)
     {
+        fclose(dic_file);
         return (false);
     }
+    init_table();
     char word[LENGTH + 1];
 
     // Read while diff EndOfFile
@@ -92,7 +105,8 @@ bool load(const char *dictionary)
             return (false);
         }
         n->next = NULL;
-        strncpy(n->word, word, strlen(word));
+
+        strcpy(n->word, word);
         // Get Hash Code
         unsigned int hash_code = hash(&word[0]);
         // Verify is this is the first register in hash table
@@ -103,15 +117,12 @@ bool load(const char *dictionary)
         }
         else
         {
-            // Add node in the begin.
-            node *aux = malloc(sizeof(node));
-            aux = table[hash_code];
+            n->next = table[hash_code];
             table[hash_code] = n;
-            // Fixing the appointment
-            n->next = aux;
         }
         g_count++;
     }
+    fclose(dic_file);
     return (true);
 }
 
@@ -137,25 +148,27 @@ unsigned int size(void)
     return (g_count);
 }
 
+void    free_ptr(void *ptr)
+{
+    if (ptr)
+    {
+        free(ptr);
+        ptr = NULL;
+    }
+}
+
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    bool result = false;
     for (int i = 0; i < N; i++)
     {
-        if (table[i])
+        node *temp;
+        while (table[i])
         {
-            while (table[i])
-            {
-                node *temp = table[i];
-                free(temp);
-                temp = NULL;
-                table[i] = table[i]->next;
-            }
-            result = true;
-            free(table[i]);
-            table[i] = NULL;
+            temp = table[i]->next;
+            free_ptr(table[i]);
+            table[i] = temp;
         }
     }
-    return (result);
+    return (true);
 }
