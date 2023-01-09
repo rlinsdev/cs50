@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include <strings.h>
 #include <cs50.h>
 
 #include <stdio.h>
@@ -28,8 +29,19 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO 4
-    return false;
+    node *aux = table[hash(&word[0])];
+
+    while (aux)
+    {
+        // 0 is equivalent
+        if (strcasecmp(aux->word, word) == 0)
+        {
+            return (true);
+        }
+        aux = aux->next;
+    }
+    return (false);
+    // return (table[hash(toupper(word))] == NULL);
 }
 
 // Hashes word to a number
@@ -62,7 +74,7 @@ bool load(const char *dictionary)
         // Get Hash Code
         unsigned int hash_code = hash(&word[0]);
         // if Table does not contain this hash code
-        if (table[hash_code] == NULL)
+        if (check(&word[0]))
         {
             // Just add node
             table[hash_code] = n;
