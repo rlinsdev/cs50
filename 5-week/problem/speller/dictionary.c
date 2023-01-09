@@ -45,26 +45,12 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // int index = 0;
-    // for (int i = 'A'; i < 'Z'; i++)
-    // {
-    //     index ++;
-    //     printf("%c: %i\n",i, index);
-    // }
-    // for (int i = 'A'; i < 'Z'; i++)
-    // {
-    //     for (int j = 'A'; j < 'Z'; j++)
-    //     {
-    //         index ++;
-    //         printf("%c%c: %i\n",i, j, index);
-    //     }
-    // }
-
     int result = 0;
     int i = 0;
     while (word[i] && i < 2)
     {
-        if (!word[i+1])
+        // Just 1 letter: First place in table
+        if (!word[i + 1])
         {
             result = toupper(word[0]) - 'A';
             break;
@@ -78,18 +64,9 @@ unsigned int hash(const char *word)
             else
             {
                 result += (toupper(word[i]) - 'A') + 26;
-                // result += 25;
             }
         }
         i++;
-        // if (i == 0)
-        // {
-        //     result = toupper(word[0]) - 'A' * 26;
-        // }
-        // else
-        // {
-        //     result += result + toupper(word[0]) - 'A';
-        // }
     }
     return result;
 }
@@ -106,7 +83,7 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
 
     // Read while diff EndOfFile
-    while(fscanf(dic_file, "%s", word) != EOF)
+    while (fscanf(dic_file, "%s", word) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
@@ -115,7 +92,6 @@ bool load(const char *dictionary)
             return (false);
         }
         n->next = NULL;
-        // strcpy(n->word, word);
         strncpy(n->word, word, strlen(word));
         // Get Hash Code
         unsigned int hash_code = hash(&word[0]);
@@ -158,14 +134,14 @@ static FILE *get_file(const char *file_path)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    return(g_count);
+    return (g_count);
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
     bool result = false;
-    for(int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
         if (table[i])
         {
