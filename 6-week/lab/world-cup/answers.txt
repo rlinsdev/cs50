@@ -1,15 +1,19 @@
 Times:
 
-10 simulations: TODO (record time using 0m0.000s format)
-100 simulations: TODO (record time using 0m0.000s format)
-1000 simulations: TODO (record time using 0m0.000s format)
-10000 simulations: TODO (record time using 0m0.000s format)
-100000 simulations: TODO (record time using 0m0.000s format)
-1000000 simulations: TODO (record time using 0m0.000s format)
+10 simulations: 0m0.003s
+100 simulations: 0m0.004s
+1000 simulations: 0m0.004s
+10000 simulations: 0m0.008s
+100000 simulations: 0m0.073s
+1000000 simulations: 0m6.850s
 
 Questions:
 
-Which predictions, if any, proved incorrect as you increased the number of simulations?: TODO
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+
+I didn't realize incorrect results or some countries with low win rates winning a lot in this simulation... Apparently, everything is normal..
 
 Suppose you're charged a fee for each second of compute time your program uses.
-After how many simulations would you call the predictions "good enough"?: TODO
+After how many simulations would you call the predictions "good enough"?:
+
+Maybe in a big system in a large company, te time will be essential to some program, but to a simple simulate, I thinks this is good enough

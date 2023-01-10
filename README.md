@@ -234,7 +234,8 @@ $ submit50 cs50/labs/2023/x/worldcup
 ```
 ```Bash
 # to debug: Open just the folder labs, run with F5
-XXXXXXXXXXXXXXXXXX valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./inheritance
+python3 tournament.py 2019w.csv
+python3 tournament.py 2018m.csv 
 ```
 * <a href="XXXXXXXXXXX https://submit.cs50.io/check50/b2fd80180bc8272b358971443db25b5500f93d4b">Recover check50</a>
 * <a href="XXXXXXXXXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/inheritance">Result recover</a>
