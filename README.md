@@ -252,10 +252,15 @@ $ submit50 cs50/problems/2023/x/sentimental/hello
 $ check50 cs50/problems/2023/x/sentimental/mario/less
 $ style50 mario.py
 $ submit50 cs50/problems/2023/x/sentimental/mario/less
+#Cash
+$ check50 cs50/problems/2023/x/sentimental/cash
+$ style50 cash.py
+$ submit50 cs50/problems/2023/x/sentimental/cash
 ```
 ```Bash
 $ python3 hello.py
 $ python3 mario.py
+$ python3 cash.py
 ```
 * <a href="https://submit.cs50.io/check50/f5df003c511ed865cf01442553e523fd73cbc2ad">Hello check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/hello">Result Hello</a>
