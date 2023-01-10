@@ -4,17 +4,75 @@ import sys
 
 def main():
 
-    # TODO: Check for command-line usage
+    # Validate user input
+    validate_input()
 
-    # TODO: Read database file into a variable
-    
-    # TODO: Read DNA sequence file into a variable
+    # Get all DataBase (people and the sequence)
+    full_db = read_db()
 
-    # TODO: Find longest match of each STR in DNA sequence
+    # Retrieve all the sequence of DNA (Read file)
+    full_sequence = read_sq()
 
-    # TODO: Check database for matching profiles
+    # Retrieve all the header in DB (Different bases)
+    STRs = list(full_db[0].keys())[1:]
+
+    # Get the longest match, based in the Base Sequence (STRs)
+    result = get_result_long_match(full_sequence, STRs)
+
+    # Check what user has the same combination
+    name = get_person(full_db, result, STRs)
+
+    # Print the user name or 'not found'
+    print(name)
 
     return
+
+
+# Try to get the person, based on math of STRs
+def get_person(full_db, result, STRs):
+    for name in full_db:
+        match = 0
+        for str in STRs:
+            # Must to be a integer
+            if int(name[str]) == result[str]:
+                match += 1
+        if match == len(STRs):
+            return name["name"]
+
+    return "No Match"
+
+
+def get_result_long_match(dna, STRs):
+    result = {}
+    for str in STRs:
+        # Longest math with each of one STRs
+        result[str] = longest_match(dna, str)
+    return result
+
+
+# argv2 txt
+def read_sq():
+    sequence = sys.argv[2]
+    with open(sequence) as f:
+        full_sequence = f.read()
+    return full_sequence
+
+
+# argv1 csv
+def read_db():
+    full_db = []
+    data_base = sys.argv[1]
+    with open(data_base) as f:
+        reader = csv.DictReader(f)
+        for reg in reader:
+            full_db.append(reg)
+    return full_db
+
+
+def validate_input():
+    if len(sys.argv) != 3:
+        print("Invalid param")
+        sys.exit(1)
 
 
 def longest_match(sequence, subsequence):
@@ -43,11 +101,11 @@ def longest_match(sequence, subsequence):
             # If there is a match in the substring
             if sequence[start:end] == subsequence:
                 count += 1
-            
+
             # If there is no match in the substring
             else:
                 break
-        
+
         # Update most consecutive matches found
         longest_run = max(longest_run, count)
 

@@ -280,6 +280,8 @@ $ python dna.py databases/large.csv sequences/5.txt
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/cash">Result Cash</a>
 * <a href="https://submit.cs50.io/check50/c6b2cada4596e5b3b8233316de8b330e6c3d499d">Readability check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/readability">Result Readability</a>
+* <a href="https://submit.cs50.io/check50/4eb8e8752625513968934e4cd5b476e694cd94c0">Dna check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/dna">Result Dna</a>
 
 
 
