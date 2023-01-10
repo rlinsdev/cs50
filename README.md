@@ -273,6 +273,8 @@ $ python3 readability.py
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/mario">Result Mario</a>
 * <a href="https://submit.cs50.io/check50/acb67786d52264faed58964940fc7bdfead7a66c">Cash check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/cash">Result Cash</a>
+* <a href="https://submit.cs50.io/check50/c6b2cada4596e5b3b8233316de8b330e6c3d499d">Readability check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/readability">Result Readability</a>
 
 
 
@@ -292,10 +294,6 @@ $ gcc -g mario.c -lcs50 -o mario
 $ gcc -g filter.c -lcs50 -o ./filter -b images/stadium.bmp ./s.bmp
 ```
 
-
-F5
-
-
 ## General Links
 * <a href="https://cs50.harvard.edu/x/2023/faqs/">CS50x</a>
 * <a href="https://learning.edx.org/course/course-v1:HarvardX+CS50+X/home">Course in Edx</a>
@@ -304,3 +302,6 @@ F5
 * <a href="https://cs50.readthedocs.io/github/">SSH/Token GitHub</a>
 * <a href="https://www.youtube.com/playlist?list=PLhQjrBD2T3837jmUt0ep7Tpmnxdv9NVut">CS50 - Week 4 playlist</a>
 *
+
+# Academic Honesty:
+* <a href="https://cs50.harvard.edu/x/2023/honesty/">Academic Honesty</a>
