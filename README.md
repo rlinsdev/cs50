@@ -285,6 +285,25 @@ $ python dna.py databases/large.csv sequences/5.txt
 
 
 
+## Week 7 - SQL
+* <a href="https://cs50.harvard.edu/x/2023/labs/7/">Lab 7: SQL</a>
+
+-Install SQLite extension
+-look inside the table (SQLite explorer - left footer)
+-Open new query (right click, new query)
+-execute query with Ctrl + Shift + Q
+
+
+```Bash
+$ check50 cs50/labs/2023/x/songs
+$ submit50 cs50/labs/2023/x/songs
+```
+```Bash
+$ sqlite3 songs.db
+$ .quit
+```
+* <a href="https://submit.cs50.io/check50/de06a067bbed6109e8917b285dc650a33f02e0fe">Song check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/songs">Result Song</a>
 
 
 
