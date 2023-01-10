@@ -240,6 +240,20 @@ python3 tournament.py 2018m.csv
 * <a href="https://submit.cs50.io/check50/8a81b2cd4a5b9d9459fbb48d06140ba6fe92a006">Worldcup check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/worldcup">Result Worldcup</a>
 
+## Week 6 - Python
+* <a href="https://cs50.harvard.edu/x/2023/psets/4/recover/">Problem Set 6: Python</a>
+
+```Bash
+# Hello
+$ check50 cs50/problems/2023/x/sentimental/hello
+$ style50 hello.py
+$ submit50 cs50/problems/2023/x/sentimental/hello
+```
+```Bash
+$ python3 hello.py
+```
+* <a href="https://submit.cs50.io/check50/f5df003c511ed865cf01442553e523fd73cbc2ad">Hello check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/recover">Result Hello</a>
 
 
 
