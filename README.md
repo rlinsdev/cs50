@@ -260,12 +260,17 @@ $ submit50 cs50/problems/2023/x/sentimental/cash
 $ check50 cs50/problems/2023/x/sentimental/readability
 $ style50 readability.py
 $ submit50 cs50/problems/2023/x/sentimental/readability
+# DNA
+$ check50 cs50/problems/2023/x/dna
+$ style50 dna.py
+$ submit50 cs50/problems/2023/x/dna
 ```
 ```Bash
 $ python3 hello.py
 $ python3 mario.py
 $ python3 cash.py
 $ python3 readability.py
+$ python dna.py databases/large.csv sequences/5.txt
 ```
 * <a href="https://submit.cs50.io/check50/f5df003c511ed865cf01442553e523fd73cbc2ad">Hello check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/hello">Result Hello</a>
