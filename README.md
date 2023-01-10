@@ -235,10 +235,10 @@ $ submit50 cs50/labs/2023/x/worldcup
 ```Bash
 # to debug: Open just the folder labs, run with F5
 python3 tournament.py 2019w.csv
-python3 tournament.py 2018m.csv 
+python3 tournament.py 2018m.csv
 ```
-* <a href="XXXXXXXXXXX https://submit.cs50.io/check50/b2fd80180bc8272b358971443db25b5500f93d4b">Recover check50</a>
-* <a href="XXXXXXXXXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/inheritance">Result recover</a>
+* <a href="https://submit.cs50.io/check50/8a81b2cd4a5b9d9459fbb48d06140ba6fe92a006">Worldcup check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/worldcup">Result Worldcup</a>
 
 
 
