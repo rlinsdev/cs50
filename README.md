@@ -252,20 +252,27 @@ $ submit50 cs50/problems/2023/x/sentimental/hello
 $ check50 cs50/problems/2023/x/sentimental/mario/less
 $ style50 mario.py
 $ submit50 cs50/problems/2023/x/sentimental/mario/less
-#Cash
+# Cash
 $ check50 cs50/problems/2023/x/sentimental/cash
 $ style50 cash.py
 $ submit50 cs50/problems/2023/x/sentimental/cash
+# readability
+$ check50 cs50/problems/2023/x/sentimental/readability
+$ style50 readability.py
+$ submit50 cs50/problems/2023/x/sentimental/readability
 ```
 ```Bash
 $ python3 hello.py
 $ python3 mario.py
 $ python3 cash.py
+$ python3 readability.py
 ```
 * <a href="https://submit.cs50.io/check50/f5df003c511ed865cf01442553e523fd73cbc2ad">Hello check50</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/hello">Result Hello</a>
 * <a href="https://submit.cs50.io/check50/4e24875d2fd97f1009f5d09ed1094d248a8ae982">Mario check50</a>
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/hello">Result Mario</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/mario">Result Mario</a>
+* <a href="https://submit.cs50.io/check50/acb67786d52264faed58964940fc7bdfead7a66c">Cash check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/cash">Result Cash</a>
 
 
 
