@@ -248,12 +248,19 @@ python3 tournament.py 2018m.csv
 $ check50 cs50/problems/2023/x/sentimental/hello
 $ style50 hello.py
 $ submit50 cs50/problems/2023/x/sentimental/hello
+# Mario
+$ check50 cs50/problems/2023/x/sentimental/mario/less
+$ style50 mario.py
+$ submit50 cs50/problems/2023/x/sentimental/mario/less
 ```
 ```Bash
 $ python3 hello.py
+$ python3 mario.py
 ```
 * <a href="https://submit.cs50.io/check50/f5df003c511ed865cf01442553e523fd73cbc2ad">Hello check50</a>
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/recover">Result Hello</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/hello">Result Hello</a>
+* <a href="https://submit.cs50.io/check50/4e24875d2fd97f1009f5d09ed1094d248a8ae982">Mario check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/sentimental/hello">Result Mario</a>
 
 
 
