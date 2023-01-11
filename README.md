@@ -339,8 +339,25 @@ $ submit50 cs50/problems/2023/x/fiftyville
 ```
 ```Bash
 ```
-* <a href="https://submit.cs50.io/check50/970e1b6c50e07e582402e3fbafe67870a328f4eb">Movies check50</a>
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/movies">Result Movies</a>
+* <a href="https://submit.cs50.io/check50/bffb91fd4edd62be382a51d20c697cec8ff4c66e">fiftyville check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/fiftyville">Result fiftyville</a>
+
+
+
+
+
+
+
+
+
+TODO: REMOVER O BANCO DEPOIS
+remote: Resolving deltas: 100% (7/7), completed with 2 local objects.
+remote: warning: See http://git.io/iEPt8g for more information.
+remote: warning: File 7-week/problem/movies/movies.db is 76.57 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+To https://github.com/rlinsdev/cs50.git
+
+
 
 
 ## Debug C - Intra
