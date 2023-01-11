@@ -1,87 +1,113 @@
 ---
---1 Report of crime:
---
--- stoled: 10:15 AM
-SELECT * FROM crime_scene_reports
- WHERE street = 'Humphrey Street'
-   AND day = 28;
-SELECT * FROM crime_scene_reports WHERE id = 295;
-
+--- Parking log
 ---
----2 Interviews. 3 people that told about the 'bakery' in month 7
----
- SELECT * from interviews
-  WHERE transcript like ('%bakery%')
-    and month = 7;
-
----
---- 3 Bakery log -
----
--- 10h 25min. +- left the bakery park
--- 1 suspects by parking in bakery. Taylor is the thief?
-SELECT p.*, b.* FROM bakery_security_logs b
+SELECT * FROM bakery_security_logs b
  INNER JOIN people p on p.license_plate = b.license_plate
  WHERE b.day = 28 and b.month = 7 and b.year = 2021
    and b.hour = 10 -- stay 10h to clean result
-   and b.minute > 24 -- 10h 15 stolen. Greather than 10h 25 get out of parking
+   and b.minute > 15 -- 10h 15 stolen. Greather than 10h 25 get out of parking
    and b.activity = 'exit'
  order by b.hour, b.minute;
+-- id's Suspects [9]:
+-- 221103
+-- 686048
+-- 243696
+-- 467400
+-- 398010
+-- 396669
+-- 514354
+-- 560886
+-- 449774
 
 ---
---- 4 atm transactions
+--- Transactions in ATM + Cars in Park
 ---
--- 8 suspects using ATM that day.
---Taylon too. Amout=60
-SELECT p.*, ba.*, atm.* FROM atm_transactions atm
+SELECT * FROM atm_transactions atm
  INNER JOIN bank_accounts ba ON ba.account_number = atm.account_number
  INNER JOIN people p on ba.person_id = p.id
  WHERE atm.atm_location = 'Leggett Street'
    AND atm.day = 28
    AND atm.month = 7
    AND atm.year = 2021
-   AND atm.transaction_type = 'withdraw';
+   AND atm.transaction_type = 'withdraw'
+   AND p.id in (
+'221103',
+'686048',
+'243696',
+'467400',
+'398010',
+'396669',
+'514354',
+'560886',
+'449774');
+
+-- id's Suspects [5]
+-- 686048
+-- 514354
+-- 396669
+-- 467400
+-- 449774
 
 ---
---- 5 Call
+--- Call phone whit characteristics + filter by Suspects
+-- Adding info of Suspect Name
 ---
-SELECT *
+SELECT PC.*, p_su.name AS Suspect, p.*
   FROM phone_calls pc
+ INNER JOIN people p ON p.phone_number = pc.caller
+ INNER JOIN people p_su ON p_su.phone_number = pc.receiver
  WHERE pc.day = 28
    AND pc.month = 7
    AND pc.year = 2021
    AND pc.duration < 60 -- less than 1 min.
-   AND caller = '(286) 555-6063'; -- Taylon number
+ AND p.id in (
+'686048',
+'514354',
+'396669',
+'467400',
+'449774');
 
 ---
---- 6 Receiver the call: James
+-- 3 suspects:
 ---
-SELECT *
-  FROM people
- WHERE phone_number = '(676) 555-6554';
+-- id	    name
+-- 449774	Taylor
+-- 514354	Diana
+-- 686048	Bruce
 
 ---
----7 Suspects: Taylor. Accomplice: James
+--- Flight 36
 ---
-SELECT * from people WHERE id IN (250277, 449774);
-
-
----
---- 8 First Flight in 29/07/2021
----
-SELECT f.*, orig.full_name, orig.city, dest.full_name, dest.city
-  FROM flights f
- INNER JOIN airports orig ON f.origin_airport_id = orig.id
- INNER JOIN airports dest ON f.destination_airport_id = dest.id
- WHERE f.day = 29
+select * From flights f
+  WHERE f.day = 29
    AND f.month = 7
    AND f.year = 2021
    AND f.hour = 8;
--- Order By f.hour;
+
+-- Brucer and Taylor are suspects. I Posted the exercise before with taylor,
+--so, is Bruce
+SELECT *
+  FROM passengers p
+ INNER JOIN people pp ON p.passport_number = pp.passport_number
+ WHERE p.flight_id = 36
+ AND pp.id IN (
+ 449774, 514354, 686048
+ );
+
+ ---
+-- 2 suspects:
+---
+-- id	    name
+-- 449774	Taylor
+-- 686048	Bruce
 
 ---
---- 9 Check if Taylon is in the flight
+---Taylor spend so much time in bakery... So, is Bruce:
 ---
-SELECT pp.*, p.*, f.* FROM flights f
- INNER JOIN passengers p on p.flight_id = f.id
- INNER JOIN people pp on pp.passport_number = p.passport_number
- WHERE f.id = 36; -- flight 36
+SELECT p.*, b.* FROM bakery_security_logs b
+ INNER JOIN people p on p.license_plate = b.license_plate
+ WHERE b.day = 28 and b.month = 7 and b.year = 2021
+   and b.hour = 10 -- stay 10h to clean result
+   and b.activity = 'exit'
+   AND p.id IN (686048, 449774)
+ order by b.hour, b.minute;
