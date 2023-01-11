@@ -306,7 +306,7 @@ $ .quit
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/songs">Result Song</a>
 
 
-## Week 7 - SQL - Movies
+## Week 7 - SQL - Problem Movies
 * <a href="https://cs50.harvard.edu/x/2023/psets/7/movies/">Problem 7: SQL</a>
 
 -Install SQLite extension
@@ -321,8 +321,26 @@ $ submit50 cs50/problems/2023/x/movies
 ```
 ```Bash
 ```
-* <a href="https://submit.cs50.io/check50/970e1b6c50e07e582402e3fbafe67870a328f4eb">Song check50</a>
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/movies">Result Song</a>
+* <a href="https://submit.cs50.io/check50/970e1b6c50e07e582402e3fbafe67870a328f4eb">Movies check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/movies">Result Movies</a>
+
+## Week 7 - SQL - Problem - fifty-ville
+* <a href="https://cs50.harvard.edu/x/2023/psets/7/fiftyville/">Problem 7: SQL</a>
+
+-Install SQLite extension
+-look inside the table (SQLite explorer - left footer)
+-Open new query (right click, new query)
+-execute query with Ctrl + Shift + Q
+
+
+```Bash
+$ check50 cs50/problems/2023/x/fiftyville
+$ submit50 cs50/problems/2023/x/fiftyville
+```
+```Bash
+```
+* <a href="https://submit.cs50.io/check50/970e1b6c50e07e582402e3fbafe67870a328f4eb">Movies check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/movies">Result Movies</a>
 
 
 ## Debug C - Intra
