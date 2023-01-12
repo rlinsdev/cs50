@@ -15,6 +15,18 @@
                     document.getElementById('feedback').innerText = "Incorrect";
                 }
             }
+
+            function question2() {
+                let text = document.getElementById('inputQ2');
+                let feedback2 = document.getElementById('feedback2');
+                if (text.value == "New Zealand") {
+                    text.className = 'b_correct';
+                    feedback2.innerText = 'Correct';
+                } else {
+                    text.className = 'b_incorrect';
+                    feedback2.innerText = 'Incorrect';
+                }
+            }
         </script>
     </head>
     <body>
@@ -39,9 +51,8 @@
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <h3>In witch country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
-                <input type="text" />
-                <button id="check">Check Answer</button>
-
+                <input type="text" id="inputQ2" />
+                <button id="check" onclick="question2()">Check Answer</button>
                 <p id="feedback2"></p>
             </div>
         </div>

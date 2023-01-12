@@ -58,6 +58,14 @@ button, input[type="submit"] {
     background-color: red;
 }
 
+.b_correct {
+    background-color: green;
+}
+
+.b_incorrect {
+    background-color: red;
+}
+
 input[type="text"] {
     line-height: 1.8;
     width: 25%;
