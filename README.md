@@ -344,6 +344,22 @@ $ submit50 cs50/problems/2023/x/fiftyville
 
 
 
+## Week 8 - Html - Trivia
+* <a href="https://cs50.harvard.edu/x/2023/labs/8/">Lab 8: Trivia</a>
+
+-Install Live Server extension
+-Go Live
+
+
+```Bash
+$ submit50 cs50/labs/2023/x/trivia
+```
+```Bash
+
+```
+* <a href="XXXXXXXXXX https://submit.cs50.io/check50/de06a067bbed6109e8917b285dc650a33f02e0fe">Song check50</a>
+* <a href="XXXXXXXXXX https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/songs">Result Song</a>
+
 
 
 

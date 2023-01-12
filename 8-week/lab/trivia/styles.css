@@ -50,6 +50,13 @@ button, input[type="submit"] {
     vertical-align: middle;
 }
 
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}
 
 input[type="text"] {
     line-height: 1.8;
