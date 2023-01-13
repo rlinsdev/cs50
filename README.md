@@ -372,10 +372,10 @@ $ submit50 cs50/labs/2023/x/trivia
 ```
 TODOs:
 * Create a simple homepage that introduces yourself, your favorite hobby or extracurricular, or anything else of interest to you.
-* Contain at least four different .html pages 
+** Contain at least four different .html pages
 * HTML: Use at least ten (10) distinct HTML tags
 * CSS: Uses at least five (5) different CSS selectors
-* JS: Integrate one or more features of JavaScript
+** JS: Integrate one or more features of JavaScript
 
 Lins:
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/trivia">Song check50</a>
