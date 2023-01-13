@@ -382,6 +382,19 @@ Lins:
 
 
 
+## Week * - Lab - birthdays
+* <a href="https://cs50.harvard.edu/x/2023/labs/9/">Lab 9*: Birthdays</a>
+
+* Flask - Python framework
+
+
+```Bash
+$ submit50 cs50/labs/2023/x/birthdays
+```
+```Bash
+flask run
+```
+* <a href="xxxxxxxxxxxxxxxxxx https://submit.cs50.io/check50/970e1b6c50e07e582402e3fbafe67870a328f4eb">Birthdays check50</a>
 
 
 
