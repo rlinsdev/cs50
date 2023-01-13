@@ -371,6 +371,7 @@ $ submit50 cs50/labs/2023/x/trivia
 ```Bash
 ```
 TODOs:
+* Create a simple homepage that introduces yourself, your favorite hobby or extracurricular, or anything else of interest to you.
 * HTML: Use at least ten (10) distinct HTML tags
 * CSS: Uses at least five (5) different CSS selectors
 * JS: Integrate one or more features of JavaScript
