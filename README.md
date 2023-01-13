@@ -382,19 +382,35 @@ Lins:
 
 
 
-## Week * - Lab - birthdays
-* <a href="https://cs50.harvard.edu/x/2023/labs/9/">Lab 9*: Birthdays</a>
+## Week 9 - Lab - birthdays
+* <a href="https://cs50.harvard.edu/x/2023/labs/9/">Lab 9: Birthdays</a>
 
 * Flask - Python framework
-
 
 ```Bash
 $ submit50 cs50/labs/2023/x/birthdays
 ```
 ```Bash
+#Debug flask configured in json file too
 flask run
 ```
-* <a href="xxxxxxxxxxxxxxxxxx https://submit.cs50.io/check50/970e1b6c50e07e582402e3fbafe67870a328f4eb">Birthdays check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/birthdays">Birthdays check50</a>
+
+
+
+## Week 9 - Problem - Finance
+* <a href="https://cs50.harvard.edu/x/2023/psets/9/finance/">Problem 9: Birthdays</a>
+
+* Flask - Python framework
+
+```Bash
+$ submit50 cs50/labs/2023/x/birthdays
+```
+```Bash
+#register Key:
+$ export API_KEY=value
+```
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/birthdays">Birthdays check50</a>
 
 
 
