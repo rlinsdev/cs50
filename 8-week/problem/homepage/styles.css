@@ -4,7 +4,27 @@ section{
     padding: 60px 0;
 }
 
-.carousel {
-    width:640px;
-    height:360px;
+  .carousel {
+    display: block;
+    height: 293px;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+
+.carousel li {
+    list-style: none;
+    position: absolute;
+}
+
+.carousel img {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+}
+
+  #profile {
+    border: 5px solid #555;
   }
