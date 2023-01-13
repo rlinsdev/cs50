@@ -343,7 +343,6 @@ $ submit50 cs50/problems/2023/x/fiftyville
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/fiftyville">Result fiftyville</a>
 
 
-
 ## Week 8 - Html - Trivia
 * <a href="https://cs50.harvard.edu/x/2023/labs/8/">Lab 8: Trivia</a>
 
@@ -357,7 +356,27 @@ $ submit50 cs50/labs/2023/x/trivia
 ```Bash
 
 ```
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/trivia>Song check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/trivia">Song check50</a>
+
+## Week 8 - Html - Homepage
+* <a href="https://cs50.harvard.edu/x/2023/psets/8/homepage/">Lab 8: Homepage</a>
+
+-Install Live Server extension
+-Go Live
+
+
+```Bash
+$ submit50 cs50/labs/2023/x/trivia
+```
+```Bash
+```
+TODOs:
+* HTML: Use at least ten (10) distinct HTML tags
+* CSS: Uses at least five (5) different CSS selectors
+* JS: Integrate one or more features of JavaScript
+
+Lins:
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/trivia">Song check50</a>
 
 
 
