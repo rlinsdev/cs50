@@ -3,3 +3,8 @@
 section{
     padding: 60px 0;
 }
+
+.carousel {
+    width:640px;
+    height:360px;
+  }
