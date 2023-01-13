@@ -412,6 +412,7 @@ $ export API_KEY=[value]
 $ pip3 install flask-session
 $ flask run
 ```
+PROCURAR POR 'TODO:Lins' ANTES DE ENTREGAR
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/birthdays">Birthdays check50</a>
 
 

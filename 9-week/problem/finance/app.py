@@ -23,8 +23,9 @@ Session(app)
 db = SQL("sqlite:///finance.db")
 
 # Make sure API key is set
-if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
+#TODO:Lins - não está recuperando
+# if not os.environ.get("API_KEY"):
+#     raise RuntimeError("API_KEY not set")
 
 
 @app.after_request
@@ -114,7 +115,48 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    return apology("TODO")
+
+    # Forget any user_id
+    session.clear()
+
+    if request.method == "POST":
+
+        # I put HTML required, but I'll validate here too
+        if not request.form.get("username"):
+            return apology("username required", 403)
+        else:
+            username = request.form.get("username")
+
+        if not request.form.get("password"):
+            return apology("password required", 403)
+        else:
+            password = request.form.get("password")
+
+        if not request.form.get("password2"):
+            return apology("password2 required", 403)
+        else:
+            password2 = request.form.get("password2")
+
+        # Validate username
+        row = db.execute("SELECT * FROM users WHERE username = ?", username)
+
+        if len(row) > 0:
+            return apology("invalid username and/or password", 403)
+
+        # Validate same password and password2
+        if password != password2:
+            return apology("Password and Password2 is not the same!", 404)
+
+        # Generate Hash
+        hash = generate_password_hash(password, )
+
+        # Insert the user
+        db.execute("INSERT INTO users (username, hash, cash) VALUES (?, ?, ? )", username, hash, 1000)
+
+        return redirect("/")
+
+    else :
+        return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
