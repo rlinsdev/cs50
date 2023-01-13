@@ -372,6 +372,7 @@ $ submit50 cs50/labs/2023/x/trivia
 ```
 TODOs:
 * Create a simple homepage that introduces yourself, your favorite hobby or extracurricular, or anything else of interest to you.
+* Contain at least four different .html pages 
 * HTML: Use at least ten (10) distinct HTML tags
 * CSS: Uses at least five (5) different CSS selectors
 * JS: Integrate one or more features of JavaScript
@@ -380,17 +381,6 @@ Lins:
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/trivia">Song check50</a>
 
 
-
-
-
-
-
-TODO: REMOVER O BANCO DEPOIS
-remote: Resolving deltas: 100% (7/7), completed with 2 local objects.
-remote: warning: See http://git.io/iEPt8g for more information.
-remote: warning: File 7-week/problem/movies/movies.db is 76.57 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
-remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
-To https://github.com/rlinsdev/cs50.git
 
 
 
