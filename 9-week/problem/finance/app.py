@@ -48,8 +48,48 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
 
+        # Check Symbol
+        symbol = request.form.get("symbol")
+        if not symbol:
+            return apology("Symbol required", 400)
+        symbol = symbol.upper()
+
+        # Get actual price and if symbol exist
+        res_quoted = lookup(symbol)
+
+        # Symbol exist?
+        if not res_quoted:
+            return apology("Symbol required", 400)
+
+        # Get Shares (integer)
+        shares = int(request.form.get("shares"))
+        if not shares or shares < 0:
+            return apology("Shares required positive number", 400)
+
+        # Get User
+        user_row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+
+        # Verify if the transaction is enabled
+        if user_row[0]["cash"] < (res_quoted["price"] * shares):
+            return apology("Insufficient budget", 400)
+
+        # Get Total value
+        total = res_quoted["price"] * shares
+        # Submit the user’s input via POST to /buy.
+        db.execute("INSERT INTO transactions (user_id, symbol, symbol_name, shares, price, total) values (?,?,?,?,?,?)",
+            user_row[0]["id"], symbol, res_quoted["name"], shares, res_quoted["price"], total)
+
+        # TODO:Lins
+        # budget = user_row[0]["cash"] - total
+        # db.execute("UPDATE users SET cash = (?) WHERE UserId = (?)", (budget, user_row[0]["id"]))
+
+        # Return Home
+        return redirect("/")
+
+    # just open the html
+    return render_template("buy.html")
 
 @app.route("/history")
 @login_required
