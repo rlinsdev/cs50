@@ -20,20 +20,15 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% for item in transactions %}
                 <tr>
-                    <th>AAA</th>
-                    <td>bla bla blabla bla blabla bla blabla bla bla </td>
-                    <td>1</td>
-                    <td>$360.10</td>
-                    <td>$360.10</td>
+                    <th>{{ item.symbol }}</th>
+                    <td>{{ item.symbol_name }}</td>
+                    <td>{{ item.shares }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>${{ item.total }}</td>
                 </tr>
-                <tr>
-                    <th>NFLX</th>
-                    <td>bla bla blaaaaa</td>
-                    <td>2</td>
-                    <td>$555.55</td>
-                    <td>$555.55</td>
-                </tr>
+                {% endfor %}
             </tbody>
             <tfoot>
                     <tr>
@@ -41,14 +36,14 @@
                         <td></td>
                         <td></td>
                         <td><h6>Cash</h6></td>
-                        <td>$9,955.69</td>
+                        <td>${{cash}}</td>
                     </tr>
                     <tr>
                         <th></th>
                         <td></td>
                         <td></td>
                         <td><h5>Total</h5></td>
-                        <td>$9,955.69</td>
+                        <td>${{total}}</td>
                     </tr>
                 </tfoot>
             </table>

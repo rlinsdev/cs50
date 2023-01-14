@@ -41,6 +41,19 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    trans = db.execute("SELECT Symbol, symbol_name, shares, price, total FROM transactions t WHERE t.user_id = (?)", session["user_id"])
+
+    total = 0
+    for x in trans:
+        # print(x)
+        total += x["total"]
+
+    # Get User
+    user_row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+
+    if len(trans) > 0:
+        return render_template("index.html", transactions=trans, cash=round(user_row[0]["cash"], 2), total=round(total, 2))
+
     return render_template("index.html")
 
 
