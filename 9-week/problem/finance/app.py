@@ -229,5 +229,15 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
-    """Sell shares of stock"""
-    return apology("TODO")
+    if request.method == "GET":
+
+        shares = db.execute("SELECT DISTINCT symbol FROM transactions WHERE user_id = ?", session["user_id"])
+        # Return Shares from user in session
+        return render_template("sell.html", shares=shares)
+
+
+
+    else:
+
+
+        return render_template("sell.html")
