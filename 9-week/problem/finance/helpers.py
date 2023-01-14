@@ -40,7 +40,11 @@ def lookup(symbol):
 
     # Contact API
     try:
+        #TODO:Lins - não está recuperando
         api_key = os.environ.get("API_KEY")
+        if not api_key:
+            api_key = "pk_29497f670e344ed58de9333bc1357ae1"
+
         url = f"https://cloud.iexapis.com/stable/stock/{urllib.parse.quote_plus(symbol)}/quote?token={api_key}"
         response = requests.get(url)
         response.raise_for_status()
