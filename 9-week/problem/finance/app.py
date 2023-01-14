@@ -36,22 +36,28 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+def get_transactions_by_session_id(symbol):
+    if not symbol:
+        return db.execute("SELECT * FROM transactions t WHERE t.user_id = (?)", session["user_id"])
+    else:
+        return db.execute("SELECT * FROM transactions t WHERE t.user_id = (?) AND symbol = (?)", session["user_id"], symbol)
 
 @app.route("/")
 @login_required
 def index():
     """Show portfolio of stocks"""
-    trans = db.execute("SELECT Symbol, symbol_name, shares, price, total FROM transactions t WHERE t.user_id = (?)", session["user_id"])
+    trans = get_transactions_by_session_id('')
 
     total = 0
     for x in trans:
-        total += x["total"]
+        total += x["price"] * x["shares"]
 
     # Get User by session
     user_row = get_user_by_session()
 
     if len(trans) > 0:
-        return render_template("index.html", transactions=trans, cash=round(user_row[0]["cash"], 2), total=round(total, 2))
+        return render_template("index.html", transactions=trans,
+            cash=round(user_row[0]["cash"], 2), total=round(total, 2))
 
     return render_template("index.html")
 
@@ -109,9 +115,10 @@ def buy():
 
         # Get Total value
         total = res_quoted["price"] * shares
-        # Submit the user’s input via POST to /buy.
-        db.execute("INSERT INTO transactions (user_id, symbol, symbol_name, shares, price, total) values (?,?,?,?,?,?)",
-            user_row[0]["id"], symbol, res_quoted["name"], shares, res_quoted["price"], total)
+        # Submit the user’s input Transaction via POST to /buy.
+        insert_transactions(user_row[0]["id"], symbol, res_quoted["name"], shares, res_quoted["price"], total)
+        # db.execute("INSERT INTO transactions (user_id, symbol, symbol_name, shares, price, total) values (?,?,?,?,?,?)",
+        #     user_row[0]["id"], symbol, res_quoted["name"], shares, res_quoted["price"], total)
 
         # Update user - Cash value remaining
         budget = user_row[0]["cash"] - total
@@ -124,11 +131,15 @@ def buy():
     # just open the html
     return render_template("buy.html")
 
+def insert_transactions(user_id, symbol, symbol_name, shares, price, total):
+    db.execute("INSERT INTO transactions (user_id, symbol, symbol_name, shares, price, total) values (?,?,?,?,?,?)",
+               user_id, symbol, symbol_name, shares, price, total)
+
 @app.route("/history")
 @login_required
 def history():
     """Show history of transactions"""
-    trans = db.execute("SELECT Symbol, shares, price, data FROM transactions t WHERE t.user_id = (?)", session["user_id"])
+    trans = get_transactions_by_session_id('')
 
     if len(trans) > 0:
         return render_template("history.html", transactions=trans)
@@ -247,6 +258,8 @@ def register():
     else :
         return render_template("register.html")
 
+def get_symbols_by_user():
+    return db.execute("SELECT DISTINCT symbol FROM transactions WHERE user_id = ?", session["user_id"])
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
@@ -254,27 +267,49 @@ def sell():
     if request.method == "GET":
 
         # retrieve symbols from transactions, of logged user
-        ddl_shares = db.execute("SELECT DISTINCT symbol FROM transactions WHERE user_id = ?", session["user_id"])
+        ddl_shares = get_symbols_by_user()
 
         # Return Shares from user in session
         return render_template("sell.html", shares=ddl_shares)
     else:
+        # get Symbol
         symbol = request.form.get("symbol")
         if not symbol:
             return apology("Symbol invalid", 400)
-        symbol = symbol.upper()
-        shares = int(request.form.get("shares"))
-        if not shares or shares < 0:
+        # symbol = symbol.upper()
+
+        # get Shares
+        shares_form = int(request.form.get("shares"))
+
+        # Check negative one
+        if not shares_form or shares_form < 0:
             return apology("Shares required positive number", 400)
 
-        # user = get_user(session["user_id"])
+        # Get Quotation from a symbol
+        re_quoted = lookup(symbol)
 
+        # Get transactions from user
+        tran_bd = get_transactions_by_session_id(symbol)
 
-        shares_bd = db.execute("SELECT SUM(shares) FROM transactions WHERE user_Id = ? AND symbol = ?", session["user_id"], symbol)
+        # Get all shares (Positives and negatives)
+        shares_bd = 0
+        for x in tran_bd:
+            shares_bd += x["shares"]
 
+        # Check shares positive
         if shares_form > shares_bd:
             return apology("Invalid Shares", 400)
 
+        total = re_quoted["price"] * shares_form
+        # Every thing is OK with this seller action. Let's do it!
+        insert_transactions(session["user_id"], symbol, re_quoted["name"], (shares_form * -1), re_quoted["price"], total)
 
+        user_row = get_user_by_session()
 
-        return render_template("sell.html")
+        # Update user - Add cash back to account
+        budget = user_row[0]["cash"] + total
+        query = "UPDATE users SET cash = (?) WHERE id = (?)"
+        db.execute(query, budget, user_row[0]["id"])
+
+        # Return Home
+        return redirect("/")
