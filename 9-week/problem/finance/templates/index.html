@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+<form action="/" method="get">
+    <div class="container py-5 text-center">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"><h5>Total</h5></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>AAA</th>
+                    <td>bla bla blabla bla blabla bla blabla bla bla </td>
+                    <td>1</td>
+                    <td>$360.10</td>
+                    <td>$360.10</td>
+                </tr>
+                <tr>
+                    <th>NFLX</th>
+                    <td>bla bla blaaaaa</td>
+                    <td>2</td>
+                    <td>$555.55</td>
+                    <td>$555.55</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <td></td>
+                        <td><h6>Cash</h6></td>
+                        <td>$9,955.69</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <td></td>
+                        <td><h5>Total</h5></td>
+                        <td>$9,955.69</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</form>
+{% endblock %}
