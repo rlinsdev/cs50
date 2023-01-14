@@ -81,9 +81,10 @@ def buy():
         db.execute("INSERT INTO transactions (user_id, symbol, symbol_name, shares, price, total) values (?,?,?,?,?,?)",
             user_row[0]["id"], symbol, res_quoted["name"], shares, res_quoted["price"], total)
 
-        # TODO:Lins
-        # budget = user_row[0]["cash"] - total
-        # db.execute("UPDATE users SET cash = (?) WHERE UserId = (?)", (budget, user_row[0]["id"]))
+        # Update user - Cash value remaining
+        budget = user_row[0]["cash"] - total
+        query = "UPDATE users SET cash = (?) WHERE id = (?)"
+        db.execute(query, budget, user_row[0]["id"])
 
         # Return Home
         return redirect("/")
