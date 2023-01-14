@@ -401,7 +401,17 @@ flask run
 ## Week 9 - Problem - Finance
 * <a href="https://cs50.harvard.edu/x/2023/psets/9/finance/">Problem 9: Birthdays</a>
 
+### Helpers:
 * Flask - Python framework
+* Stocks symbols NFLX, TSLA, AAPL, NKE, AMZN
+
+
+### TODO's:
+* New users will receive $10,000 in cash.
+* Register
+    **
+
+
 
 ```Bash
 $ submit50 cs50/labs/2023/x/birthdays
@@ -413,7 +423,10 @@ $ pip3 install flask-session
 $ flask run
 ```
 PROCURAR POR 'TODO:Lins' ANTES DE ENTREGAR
+* <a href="https://finance.cs50.net/login">Finance default App</a>
 * <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/birthdays">Birthdays check50</a>
+
+
 
 
 

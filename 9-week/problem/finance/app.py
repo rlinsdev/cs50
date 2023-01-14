@@ -132,10 +132,10 @@ def register():
         else:
             password = request.form.get("password")
 
-        if not request.form.get("password2"):
-            return apology("password2 required", 403)
+        if not request.form.get("confirmation"):
+            return apology("confirmation required", 403)
         else:
-            password2 = request.form.get("password2")
+            confirmation = request.form.get("confirmation")
 
         # Validate username
         row = db.execute("SELECT * FROM users WHERE username = ?", username)
@@ -143,15 +143,15 @@ def register():
         if len(row) > 0:
             return apology("invalid username and/or password", 403)
 
-        # Validate same password and password2
-        if password != password2:
-            return apology("Password and Password2 is not the same!", 404)
+        # Validate same password and confirmation
+        if password != confirmation:
+            return apology("Password and confirmation is not the same!", 404)
 
         # Generate Hash
         hash = generate_password_hash(password, )
 
         # Insert the user
-        db.execute("INSERT INTO users (username, hash, cash) VALUES (?, ?, ? )", username, hash, 1000)
+        db.execute("INSERT INTO users (username, hash, cash) VALUES (?, ?, ?)", username, hash, 10000)
 
         return redirect("/")
 
