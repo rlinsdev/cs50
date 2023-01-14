@@ -45,17 +45,36 @@ def index():
 
     total = 0
     for x in trans:
-        # print(x)
         total += x["total"]
 
-    # Get User
-    user_row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+    # Get User by session
+    user_row = get_user_by_session()
 
     if len(trans) > 0:
         return render_template("index.html", transactions=trans, cash=round(user_row[0]["cash"], 2), total=round(total, 2))
 
     return render_template("index.html")
 
+# def get_symbol():
+#     symbol = request.form.get("symbol")
+#     if not symbol:
+#         return apology("Symbol invalid", 400)
+#     return symbol.upper()
+
+# def get_shares():
+#     shares = int(request.form.get("shares"))
+#     if not shares or shares < 0:
+#         return apology("Shares required positive number", 400)
+#     return shares
+
+def get_user_by_username(username):
+    return db.execute("SELECT * FROM users WHERE username = ?", username)
+
+def get_user_by_id(id):
+    return db.execute("SELECT * FROM users WHERE id = ?", id)
+
+def get_user_by_session():
+    return db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -66,7 +85,7 @@ def buy():
         # Check Symbol
         symbol = request.form.get("symbol")
         if not symbol:
-            return apology("Symbol required", 400)
+            return apology("Symbol invalid", 400)
         symbol = symbol.upper()
 
         # Get actual price and if symbol exist
@@ -74,15 +93,15 @@ def buy():
 
         # Symbol exist?
         if not res_quoted:
-            return apology("Symbol required", 400)
+            return apology("Symbol invalid", 400)
 
         # Get Shares (integer)
         shares = int(request.form.get("shares"))
         if not shares or shares < 0:
             return apology("Shares required positive number", 400)
 
-        # Get User
-        user_row = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+        # Get User by session
+        user_row = get_user_by_session()
 
         # Verify if the transaction is enabled
         if user_row[0]["cash"] < (res_quoted["price"] * shares):
@@ -113,7 +132,7 @@ def history():
 
     if len(trans) > 0:
         return render_template("history.html", transactions=trans)
-    return render_template("/")
+    return redirect("/")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -135,7 +154,7 @@ def login():
             return apology("must provide password", 403)
 
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = get_user_by_username(request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
@@ -172,8 +191,11 @@ def quote():
 
         symbol = request.form.get("symbol")
         if not symbol:
-            return apology("Symbol required", 400)
+            return apology("Symbol invalid", 400)
+        symbol = symbol.upper()
+
         quoted = lookup(symbol)
+
         return render_template("quote.html", quoted=quoted)
 
     return render_template("quote.html")
@@ -205,7 +227,7 @@ def register():
             confirmation = request.form.get("confirmation")
 
         # Validate username
-        row = db.execute("SELECT * FROM users WHERE username = ?", username)
+        row = get_user_by_username(username)
 
         if len(row) > 0:
             return apology("invalid username and/or password", 403)
@@ -231,13 +253,28 @@ def register():
 def sell():
     if request.method == "GET":
 
-        shares = db.execute("SELECT DISTINCT symbol FROM transactions WHERE user_id = ?", session["user_id"])
+        # retrieve symbols from transactions, of logged user
+        ddl_shares = db.execute("SELECT DISTINCT symbol FROM transactions WHERE user_id = ?", session["user_id"])
+
         # Return Shares from user in session
-        return render_template("sell.html", shares=shares)
-
-
-
+        return render_template("sell.html", shares=ddl_shares)
     else:
+        symbol = request.form.get("symbol")
+        if not symbol:
+            return apology("Symbol invalid", 400)
+        symbol = symbol.upper()
+        shares = int(request.form.get("shares"))
+        if not shares or shares < 0:
+            return apology("Shares required positive number", 400)
+
+        # user = get_user(session["user_id"])
+
+
+        shares_bd = db.execute("SELECT SUM(shares) FROM transactions WHERE user_Id = ? AND symbol = ?", session["user_id"], symbol)
+
+        if shares_form > shares_bd:
+            return apology("Invalid Shares", 400)
+
 
 
         return render_template("sell.html")
