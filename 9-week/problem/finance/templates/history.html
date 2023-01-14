@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+<form action="/history" method="get">
+    <div class="container py-5 text-center">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Transacted</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in transactions %}
+                <tr>
+                    <th>{{ item.symbol }}</th>
+                    <td>{{ item.shares }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>{{ item.data }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+{% endblock %}
