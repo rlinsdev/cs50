@@ -43,16 +43,18 @@ def index():
     trans = get_transactions_by_session_id('')
 
     # Gel total value of all transactions
-    total = 0
+    total_tran = 0
     for x in trans:
-        total += x["price"] * x["shares"]
+        total_tran += x["price"] * x["shares"]
 
     # Get User by session
     user_row = get_user_by_session()
 
+    total = round(total_tran, 2) + round(user_row[0]["cash"], 2)
+
     if len(trans) > 0:
         return render_template("index.html", transactions=trans,
-            cash=round(user_row[0]["cash"], 2), total=round(total, 2))
+            cash="{:,}".format(round(user_row[0]["cash"], 2)), total="{:,}".format(total))
 
     return render_template("index.html")
 
