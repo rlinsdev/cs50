@@ -407,15 +407,9 @@ flask run
 * Base: https://finance.cs50.net/register
 
 
-### TODO's:
-* New users will receive $10,000 in cash.
-* Register
-    **
-
-
-
 ```Bash
-$ submit50 cs50/labs/2023/x/birthdays
+$ check50 cs50/problems/2023/x/finance
+$ submit50 cs50/problems/2023/x/finance
 ```
 ```Bash
 #register Key:
@@ -426,7 +420,7 @@ $ style50 *.py
 
 ```
 * <a href="https://finance.cs50.net/login">Finance default App</a>
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/birthdays">Birthdays check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/birthdays">Finance check50</a>
 
 
 

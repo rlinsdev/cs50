@@ -138,18 +138,18 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Query database for username
         rows = get_user_by_username(request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            return apology("invalid username and/or password", 400)
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -207,17 +207,17 @@ def register():
 
         # I put HTML required, but I'll validate here too
         if not request.form.get("username"):
-            return apology("username required", 403)
+            return apology("username required", 400)
         else:
             username = request.form.get("username")
 
         if not request.form.get("password"):
-            return apology("password required", 403)
+            return apology("password required", 400)
         else:
             password = request.form.get("password")
 
         if not request.form.get("confirmation"):
-            return apology("confirmation required", 403)
+            return apology("confirmation required", 400)
         else:
             confirmation = request.form.get("confirmation")
 
@@ -225,11 +225,11 @@ def register():
         row = get_user_by_username(username)
 
         if len(row) > 0:
-            return apology("invalid username and/or password", 403)
+            return apology("invalid username and/or password", 400)
 
         # Validate same password and confirmation
         if password != confirmation:
-            return apology("Password and confirmation is not the same!", 404)
+            return apology("Password and confirmation is not the same!", 400)
 
         # Generate Hash
         hash = generate_password_hash(password)
