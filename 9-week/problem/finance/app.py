@@ -40,7 +40,6 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    # trans = get_transactions_by_session_id('')
     trans = get_trans_home()
 
     # Gel total value of all transactions
@@ -48,16 +47,24 @@ def index():
     for x in trans:
         total_tran += x["price"] * x["shares"]
 
-    # Get User by session
-    user_row = get_user_by_session()
+    # User without transactions
+    if len(trans) == 0:
+        total = 10000
+        cash = 10000
+    else:
+        # Get User by session
+        user_row = get_user_by_session()
 
-    total = round(total_tran, 2) + round(user_row[0]["cash"], 2)
+        # Get Total
+        total = round(total_tran, 2) + round(user_row[0]["cash"], 2)
 
-    if len(trans) > 0:
-        return render_template("index.html", transactions=trans,
-            cash=user_row[0]["cash"], total=total)
+        # Update cash value
+        cash =user_row[0]["cash"]
 
-    return render_template("index.html")
+    return render_template("index.html", transactions=trans,
+            cash=cash, total=total)
+
+    # return render_template("index.html")
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -103,7 +110,6 @@ def buy():
 
         # Return Home
         return redirect("/")
-        # return render_template("index.html", bought='true')
 
     # just open the html
     return render_template("buy.html")
@@ -288,9 +294,8 @@ def sell():
 
         # Return Home
         return redirect("/")
-        # return render_template("index.html", sold='true')
 
-# Get transaction by suserId and symbol
+# Get transaction by userId and symbol
 def get_transactions_by_session_id(symbol):
     if not symbol:
         return db.execute("SELECT * FROM transactions t WHERE t.user_id = (?)", session["user_id"])
