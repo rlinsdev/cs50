@@ -8,4 +8,4 @@
 
 -- select SUM(shares) from transactions WHERE user_Id = 1 AND symbol = 'TSLA'
 
-select * from transactions WHERE symbol = 'NFLX'
+select * from transactions WHERE symbol = 'NFLX';

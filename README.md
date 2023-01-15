@@ -404,6 +404,7 @@ flask run
 ### Helpers:
 * Flask - Python framework
 * Stocks symbols NFLX, TSLA, AAPL, NKE, AMZN
+* Base: https://finance.cs50.net/register
 
 
 ### TODO's:
