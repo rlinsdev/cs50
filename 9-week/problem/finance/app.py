@@ -230,7 +230,8 @@ def register():
         session["user_id"] = row_user_inserted[0]["id"]
 
         # Redirect user to home page
-        return redirect("/")
+        # return redirect("/")
+        return render_template("index.html", first_access='true')
 
 
 
