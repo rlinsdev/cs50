@@ -85,6 +85,9 @@ def buy():
         if not res_quoted:
             return apology("Symbol invalid", 400)
 
+        if not request.form.get("shares").isnumeric():
+            return apology("Shades invalid", 400)
+
         # Get Shares (integer)
         shares = int(request.form.get("shares"))
         if not shares or shares < 0:
