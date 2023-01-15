@@ -23,7 +23,7 @@ Session(app)
 db = SQL("sqlite:///finance.db")
 
 # Make sure API key is set
-#TODO:Lins - não está recuperando
+# TODO:Lins - não está recuperando
 # if not os.environ.get("API_KEY"):
 #     raise RuntimeError("API_KEY not set")
 
@@ -35,6 +35,7 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
+
 
 @app.route("/")
 @login_required
@@ -59,12 +60,11 @@ def index():
         total = round(total_tran, 2) + round(user_row[0]["cash"], 2)
 
         # Update cash value
-        cash =user_row[0]["cash"]
+        cash = user_row[0]["cash"]
 
     return render_template("index.html", transactions=trans,
-            cash=cash, total=total)
+                           cash=cash, total=total)
 
-    # return render_template("index.html")
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -113,6 +113,7 @@ def buy():
 
     # just open the html
     return render_template("buy.html")
+
 
 @app.route("/history")
 @login_required
@@ -243,8 +244,9 @@ def register():
 
         # Redirect user to home page. Put header bootstrap alert
         return render_template("index.html", first_access='true', cash=10000, total=10000)
-    else :
+    else:
         return render_template("register.html")
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
@@ -288,7 +290,7 @@ def sell():
         # Every thing is OK with this seller action. Let's do it!
         insert_transactions(session["user_id"], symbol, re_quoted["name"], (shares_form * -1), re_quoted["price"], total)
 
-        #Get user in Session
+        # Get user in Session
         user_row = get_user_by_session()
 
         # Update user - Add cash back to account
@@ -298,6 +300,7 @@ def sell():
         # Return Home
         return redirect("/")
 
+
 # Get transaction by userId and symbol
 def get_transactions_by_session_id(symbol):
     if not symbol:
@@ -305,29 +308,37 @@ def get_transactions_by_session_id(symbol):
     else:
         return db.execute("SELECT * FROM transactions t WHERE t.user_id = (?) AND symbol = (?)", session["user_id"], symbol)
 
+
 def get_trans_home():
-    #printf("%.2f", 1234567.4567)
     return db.execute(
-    "SELECT symbol, symbol_name, SUM(shares) shares, price, SUM(shares * price) total"\
-    " FROM transactions "\
-    " WHERE user_id = (?) "\
-    " Group By symbol, symbol_name, price", session["user_id"])
+        "SELECT symbol, symbol_name, SUM(shares) shares, price, SUM(shares * price) total"
+        " FROM transactions "
+        " WHERE user_id = (?) "
+        " Group By symbol, symbol_name, price", session["user_id"])
+
 
 def get_user_by_username(username):
     return db.execute("SELECT * FROM users WHERE username = ?", username)
 
+
 def get_user_by_id(id):
     return db.execute("SELECT * FROM users WHERE id = ?", id)
 
+
 def get_user_by_session():
     return db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
+
 
 def update_user_cash(user_id, budget):
     query = "UPDATE users SET cash = (?) WHERE id = (?)"
     db.execute(query, budget, user_id)
 
+
 def get_symbols_by_user():
     return db.execute("SELECT DISTINCT symbol FROM transactions WHERE user_id = ?", session["user_id"])
 
+
 def insert_transactions(user_id, symbol, symbol_name, shares, price, total):
-    db.execute("INSERT INTO transactions (user_id, symbol, symbol_name, shares, price, total) values (?,?,?,?,?,?)", user_id, symbol, symbol_name, shares, price, total)
+    db.execute("INSERT INTO transactions (user_id, symbol, symbol_name, shares, price, total) values (?,?,?,?,?,?)",
+               user_id, symbol, symbol_name, shares, price, total)
+
