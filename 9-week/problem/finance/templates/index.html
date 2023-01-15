@@ -66,6 +66,7 @@
                 {% endfor %}
             </tbody>
             <tfoot>
+                {% if cash %}
                     <tr>
                         <th></th>
                         <td></td>
@@ -73,6 +74,8 @@
                         <td><h6>Cash</h6></td>
                         <td>{{ "${:,.2f}".format(cash) }}</td>
                     </tr>
+                {% endif %}
+                {% if total  %}
                     <tr>
                         <th></th>
                         <td></td>
@@ -80,6 +83,7 @@
                         <td><h5>Total</h5></td>
                         <td>{{ "${:,.2f}".format(total) }}</td>
                     </tr>
+                {% endif %}
                 </tfoot>
             </table>
         </div>

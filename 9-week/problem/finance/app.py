@@ -233,8 +233,8 @@ def register():
         # Remember which user has logged in
         session["user_id"] = row_user_inserted[0]["id"]
 
-        # Redirect user to home page
-        return render_template("index.html", first_access='true')
+        # Redirect user to home page. Put header bootstrap alert
+        return render_template("index.html", first_access='true', cash=10000, total=10000)
     else :
         return render_template("register.html")
 
