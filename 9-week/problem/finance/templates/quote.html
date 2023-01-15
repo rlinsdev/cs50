@@ -13,7 +13,7 @@
             <button class="btn btn-primary" type="submit">Quote</button>
         {% else %}
             <div class="mb-3">
-                <p>A share of {{quoted.name}} ({{quoted.symbol}}) costs ${{quoted.price}}!</p>
+                <p>A share of {{quoted.name}} ({{quoted.symbol}}) costs {{ quoted.price | usd }}!</p>
             </div>
         {% endif %}
     </form>
