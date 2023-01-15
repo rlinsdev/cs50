@@ -100,6 +100,7 @@ def buy():
 
         # Return Home
         return redirect("/")
+        # return render_template("index.html", bought='true')
 
     # just open the html
     return render_template("buy.html")
@@ -295,6 +296,7 @@ def sell():
 
         # Return Home
         return redirect("/")
+        # return render_template("index.html", sold='true')
 
 # Get transaction by suserId and symbol
 def get_transactions_by_session_id(symbol):

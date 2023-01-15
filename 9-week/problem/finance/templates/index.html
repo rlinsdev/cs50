@@ -17,6 +17,29 @@
           </div>
     </div>
     {% endif %}
+
+    {% if bought %}
+    <div class="col-md-12">
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+            <div>
+                Bought! Check your investment portfolio!
+            </div>
+          </div>
+    </div>
+    {% endif %}
+
+    {% if sold %}
+    <div class="col-md-12">
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+            <div>
+                Sold! Check your investment portfolio!
+            </div>
+          </div>
+    </div>
+    {% endif %}
+
     <div class="container py-5 text-center">
         <div class="col-md-8">
             <table class="table table-striped">
