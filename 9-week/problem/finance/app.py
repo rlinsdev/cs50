@@ -218,12 +218,27 @@ def register():
             return apology("Password and confirmation is not the same!", 404)
 
         # Generate Hash
+        # TODO:Lins - Cara, este método está certo?
         hash = generate_password_hash(password, )
 
         # Insert the user
         db.execute("INSERT INTO users (username, hash, cash) VALUES (?, ?, ?)", username, hash, 10000)
 
+        row_user_inserted = get_user_by_username(username)
+
+        # Remember which user has logged in
+        session["user_id"] = row_user_inserted[0]["id"]
+
+        # Redirect user to home page
         return redirect("/")
+
+
+
+        # return redirect("/")
+        # Remember which user has logged in
+
+
+
 
     else :
         return render_template("register.html")
