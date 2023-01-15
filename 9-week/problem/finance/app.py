@@ -55,7 +55,7 @@ def index():
 
     if len(trans) > 0:
         return render_template("index.html", transactions=trans,
-            cash="{:,}".format(round(user_row[0]["cash"], 2)), total="{:,}".format(total))
+            cash=user_row[0]["cash"], total=total)
 
     return render_template("index.html")
 
@@ -299,6 +299,7 @@ def get_transactions_by_session_id(symbol):
         return db.execute("SELECT * FROM transactions t WHERE t.user_id = (?) AND symbol = (?)", session["user_id"], symbol)
 
 def get_trans_home():
+    #printf("%.2f", 1234567.4567)
     return db.execute(
     "SELECT symbol, symbol_name, SUM(shares) shares, price, SUM(shares * price) total"\
     " FROM transactions "\

@@ -59,8 +59,8 @@
                         <th>{{ item.symbol }}</th>
                         <td>{{ item.symbol_name }}</td>
                         <td>{{ item.shares }}</td>
-                        <td>${{ item.price }}</td>
-                        <td>${{ item.total }}</td>
+                        <td>{{ "${:,.2f}".format(item.price) }}</td>
+                        <td>{{ "${:,.2f}".format(item.total) }}</td>
                     </tr>
                     {% endif %}
                 {% endfor %}
@@ -71,14 +71,14 @@
                         <td></td>
                         <td></td>
                         <td><h6>Cash</h6></td>
-                        <td>${{cash}}</td>
+                        <td>{{ "${:,.2f}".format(cash) }}</td>
                     </tr>
                     <tr>
                         <th></th>
                         <td></td>
                         <td></td>
                         <td><h5>Total</h5></td>
-                        <td>${{total}}</td>
+                        <td>{{ "${:,.2f}".format(total) }}</td>
                     </tr>
                 </tfoot>
             </table>

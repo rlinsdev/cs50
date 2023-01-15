@@ -10,7 +10,9 @@
 
 -- select * from transactions WHERE symbol = 'NFLX';
 
+select * from users;
+
 SELECT symbol, symbol_name, SUM(shares) shares, price, SUM(shares * price) total
   FROM transactions
- WHERE user_id = 21
+ WHERE user_id = 22
  Group By symbol, symbol_name, price;
