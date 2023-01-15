@@ -222,8 +222,7 @@ def register():
             return apology("Password and confirmation is not the same!", 404)
 
         # Generate Hash
-        # TODO:Lins - Cara, este método está certo?
-        hash = generate_password_hash(password, )
+        hash = generate_password_hash(password)
 
         # Insert the user
         db.execute("INSERT INTO users (username, hash, cash) VALUES (?, ?, ?)", username, hash, 10000)
