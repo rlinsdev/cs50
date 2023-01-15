@@ -8,4 +8,9 @@
 
 -- select SUM(shares) from transactions WHERE user_Id = 1 AND symbol = 'TSLA'
 
-select * from transactions WHERE symbol = 'NFLX';
+-- select * from transactions WHERE symbol = 'NFLX';
+
+SELECT symbol, symbol_name, SUM(shares) shares, price, SUM(shares * price) total
+  FROM transactions
+ WHERE user_id = 21
+ Group By symbol, symbol_name, price;

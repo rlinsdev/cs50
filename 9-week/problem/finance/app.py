@@ -40,7 +40,8 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    trans = get_transactions_by_session_id('')
+    # trans = get_transactions_by_session_id('')
+    trans = get_trans_home()
 
     # Gel total value of all transactions
     total_tran = 0
@@ -233,17 +234,7 @@ def register():
         session["user_id"] = row_user_inserted[0]["id"]
 
         # Redirect user to home page
-        # return redirect("/")
         return render_template("index.html", first_access='true')
-
-
-
-        # return redirect("/")
-        # Remember which user has logged in
-
-
-
-
     else :
         return render_template("register.html")
 
@@ -306,6 +297,13 @@ def get_transactions_by_session_id(symbol):
         return db.execute("SELECT * FROM transactions t WHERE t.user_id = (?)", session["user_id"])
     else:
         return db.execute("SELECT * FROM transactions t WHERE t.user_id = (?) AND symbol = (?)", session["user_id"], symbol)
+
+def get_trans_home():
+    return db.execute(
+    "SELECT symbol, symbol_name, SUM(shares) shares, price, SUM(shares * price) total"\
+    " FROM transactions "\
+    " WHERE user_id = (?) "\
+    " Group By symbol, symbol_name, price", session["user_id"])
 
 def get_user_by_username(username):
     return db.execute("SELECT * FROM users WHERE username = ?", username)

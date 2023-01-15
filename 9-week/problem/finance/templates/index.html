@@ -54,13 +54,15 @@
                 </thead>
                 <tbody>
                 {% for item in transactions %}
-                <tr>
-                    <th>{{ item.symbol }}</th>
-                    <td>{{ item.symbol_name }}</td>
-                    <td>{{ item.shares }}</td>
-                    <td>${{ item.price }}</td>
-                    <td>${{ item.total }}</td>
-                </tr>
+                    {% if item.shares > 0 %}
+                    <tr>
+                        <th>{{ item.symbol }}</th>
+                        <td>{{ item.symbol_name }}</td>
+                        <td>{{ item.shares }}</td>
+                        <td>${{ item.price }}</td>
+                        <td>${{ item.total }}</td>
+                    </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
             <tfoot>
