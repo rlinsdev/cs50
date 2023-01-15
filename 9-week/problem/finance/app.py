@@ -187,6 +187,9 @@ def quote():
         # Get values from that symbol - Call External API
         quoted = lookup(symbol)
 
+        if not quoted:
+            return apology("Symbol invalid", 400)
+
         return render_template("quote.html", quoted=quoted)
 
     return render_template("quote.html")
