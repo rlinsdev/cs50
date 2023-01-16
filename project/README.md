@@ -23,6 +23,8 @@ $ nodemon app.js
 ```Shell
 $ npm init
 $ npm i ejs express
+$ npm i passport
+$ npm i passport-google-oauth20
 ```
 
 
