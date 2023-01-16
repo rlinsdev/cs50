@@ -420,7 +420,8 @@ $ style50 *.py
 
 ```
 * <a href="https://finance.cs50.net/login">Finance default App</a>
-* <a href="https://submit.cs50.io/users/rlinsdev/cs50/labs/2023/x/birthdays">Finance check50</a>
+* <a href="https://submit.cs50.io/check50/0dda82a80ba7ac97a50d0dee1df6d13754ab42f2">Finance check50</a>
+* <a href="https://submit.cs50.io/users/rlinsdev/cs50/problems/2023/x/finance">Result Finance</a>
 
 
 
@@ -446,7 +447,7 @@ $ gcc -g filter.c -lcs50 -o ./filter -b images/stadium.bmp ./s.bmp
 * <a href="https://cs50.readthedocs.io/style50/">CS50 style</a>
 * <a href="https://cs50.readthedocs.io/github/">SSH/Token GitHub</a>
 * <a href="https://www.youtube.com/playlist?list=PLhQjrBD2T3837jmUt0ep7Tpmnxdv9NVut">CS50 - Week 4 playlist</a>
-*
+
 
 # Academic Honesty:
-* <a href="https://cs50.harvard.edu/x/2023/honesty/">Academic Honesty</a>
+* [Academic Honesty](https://cs50.harvard.edu/x/2023/honesty/)
