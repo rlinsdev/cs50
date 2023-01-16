@@ -10,10 +10,6 @@ At first, this working with: Facebook, Google and GitHub TODO: estes 3 mesmo?
 
 One similar project was did to make a microservice in my company, to focus in one single point to login in platform, and keep the user logged in and accessing all the system.
 
-
-
-TODO: JWEBTOKEN???/
-
 ## To Run
 ```Shell
 $ nodemon app.js
@@ -30,14 +26,15 @@ $ npm i passport-google-oauth20
 
 ## Links
 * [CS50 - Final Project](https://cs50.harvard.edu/x/2023/project/)
-TODO: Ler novamente o link final
 * [OAuth definition](https://oauth.net/)
 * [What is OAuth and why does it matter?](https://www.youtube.com/watch?v=KT8ybowdyr0)
 * [Passport.js](https://www.passportjs.org/)
+* [Passport - Google](https://www.passportjs.org/packages/passport-google-oauth20/)
 * [Node.js](https://nodejs.org/en/)
 * [Express.js](https://expressjs.com/)
 * [Embedded JavaScript](https://ejs.co/)
 * [Mongodb](https://www.mongodb.com/)
+* [Google Console developers](https://console.developers.google.com/)
 
 
 

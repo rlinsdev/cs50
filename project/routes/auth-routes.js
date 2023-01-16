@@ -1,5 +1,6 @@
 // Enable to export routes
 const router = require('express').Router();
+const passport = require('passport');
 
 // auth login
 router.get('/login',(req, res) => {
@@ -12,8 +13,8 @@ router.get('/logout', (req, res) =>{
 })
 
 // google
-router.get('/google', (req, res) => {
-    res.send("login google with passport");
-});
+router.get('/google', passport.authenticate('google', {
+    scope: ['profile']
+}));
 
 module.exports = router;
