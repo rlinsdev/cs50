@@ -14,14 +14,19 @@ passport.use(new GoogleStrategy({
     if (profile.photos != null && profile.photos.length > 0 ) {
         avatar = profile.photos[0].value;
     }
-    new User({
-        id: profile.id,
-        org: "Google",
-        username: profile.displayName,
-        avatar: avatar
-    }).save().then((newUser) => {
-        console.log(newUser);
-    })
 
-})
-)
+    User.findOne({id: profile.id}).then((savedUser) => {
+        // Check if user exist in DB
+        if (!savedUser) {
+            // Add new user in mongo
+            new User({
+                id: profile.id,
+                org: "Google",
+                username: profile.displayName,
+                avatar: avatar
+            }).save().then((newUser) => {
+                console.log(newUser);
+            })
+        }
+    })
+}))
