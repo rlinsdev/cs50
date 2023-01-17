@@ -1,6 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
 const keys = require('./keys');
+const User = require('../models/user-model');
 
 passport.use(new GoogleStrategy({
     callbackURL:'/auth/google/redirect',
@@ -8,8 +9,19 @@ passport.use(new GoogleStrategy({
     clientSecret: keys.google.clientSecret
 }, (accessToken, refreshToken, profile, done) => {
     console.log('passport callback function - Google');
-    console.log(profile);
-
+    // console.log(profile);
+    let avatar;
+    if (profile.photos != null && profile.photos.length > 0 ) {
+        avatar = profile.photos[0].value;
+    }
+    new User({
+        id: profile.id,
+        org: "Google",
+        username: profile.displayName,
+        avatar: avatar
+    }).save().then((newUser) => {
+        console.log(newUser);
+    })
 
 })
 )

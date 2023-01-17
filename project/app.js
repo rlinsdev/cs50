@@ -12,7 +12,7 @@ app.set('view engine','ejs');
 // Mongo
 mongoose.set('strictQuery', true);
 mongoose.connect(keys.mongodb.dbURI, () => {
-    console.log('Mongo conected');
+    console.log('Mongo connected');
 });
 
 // Point to routes in folder
