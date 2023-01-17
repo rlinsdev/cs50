@@ -21,6 +21,7 @@ $ npm init
 $ npm i ejs express
 $ npm i passport
 $ npm i passport-google-oauth20
+$ npm i mongoose
 ```
 
 
