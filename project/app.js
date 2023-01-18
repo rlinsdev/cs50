@@ -3,11 +3,23 @@ const authRoutes = require('./routes/auth-routes');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 const app = express();
 
 // View Engine
 app.set('view engine','ejs');
+
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,  // Expiration = 1 day
+    keys:[keys.session.cookieKey]
+}));
+
+// Initialize passport
+app.use(passport.initialize());
+// Initialize session cookie
+app.use(passport.session());
 
 // Mongo
 mongoose.set('strictQuery', true);
