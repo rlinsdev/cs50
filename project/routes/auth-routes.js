@@ -22,7 +22,7 @@ router.get('/google', passport.authenticate('google', {
 
 // Must call authenticate again, because now we have google code access
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-    // Save user to profile page
+    // send user to profile page
     res.redirect('/profile');
 })
 
@@ -32,9 +32,8 @@ router.get('/github', passport.authenticate('github', {
 
 // Must call authenticate again, because now we have github code access
 router.get('/github/redirect', passport.authenticate('github'), (req, res) => {
-    // Save user to profile page
+    // send user to profile page
     res.redirect('/profile');
-    // console.log("Passou!");
 })
 
 module.exports = router;

@@ -19,14 +19,13 @@ passport.use(new GoogleStrategy({
     clientID: keys.google.clientID,
     clientSecret: keys.google.clientSecret
 }, (accessToken, refreshToken, profile, done) => {
-    // console.log('passport callback function - Google');
+    console.log('Google - CallBack function');
     console.log(profile);
 
     User.findOne({org_id: profile.id}).then((savedUser) => {
         // Check if user exist in DB
         if (!savedUser) {
             let avatar;
-            console.log(profile);
             if (profile.photos != null && profile.photos.length > 0 ) {
                 avatar = profile.photos[0].value;
             }
@@ -37,12 +36,12 @@ passport.use(new GoogleStrategy({
                 username: profile.displayName,
                 avatar: avatar
             }).save().then((newUser) => {
-                // console.log("New User! ", newUser);
+                console.log("New User Added in mongo! ", newUser);
                 done(null, newUser);
             })
         } else {
             // User exist in BD
-            // console.log("Existent user! ", savedUser);
+            console.log("Existent user! ", savedUser);
             done(null, savedUser);
         }
     })
@@ -53,15 +52,12 @@ passport.use(new GithubStrategy({
     clientID: keys.github.clientID,
     clientSecret: keys.github.secretKey
 }, (accessToken, refreshToken, profile, done) => {
-    console.log('passport callback function - GitHub!');
-    console.log(profile.id);
+    console.log('GitHub - CallBack Function!');
+    console.log(profile);
     User.findOne({org_id: profile.id}).then((savedUser) => {
         // Check if user exist in DB
-        // console.log('ok, Entrou');
         if (!savedUser) {
-            // console.log('Não existe este user. Bora');
             let avatar;
-            // console.log(profile);
             if (profile.photos != null && profile.photos.length > 0 ) {
                 avatar = profile.photos[0].value;
             }
@@ -73,12 +69,12 @@ passport.use(new GithubStrategy({
                 full_name: profile.displayName,
                 avatar: avatar
             }).save().then((newUser) => {
-                // console.log("New User! ", newUser);
+                console.log("New User! ", newUser);
                 done(null, newUser);
             })
         } else {
             // User exist in BD
-            // console.log("Existent user! ", savedUser);
+            console.log("Existent user! ", savedUser);
             done(null, savedUser);
         }
     })
