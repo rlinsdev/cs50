@@ -26,4 +26,15 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
     res.redirect('/profile');
 })
 
+router.get('/github', passport.authenticate('github', {
+    scope: ['profile']
+}));
+
+// Must call authenticate again, because now we have github code access
+router.get('/github/redirect', passport.authenticate('github'), (req, res) => {
+    // Save user to profile page
+    res.redirect('/profile');
+    // console.log("Passou!");
+})
+
 module.exports = router;
