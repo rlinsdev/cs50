@@ -1,8 +1,9 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const GithubStrategy = require('passport-github2').Strategy;
-const keys = require('./keys');
+// const keys = require('./keys');
 const User = require('../models/user-model');
+require('dotenv').config();
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -15,9 +16,9 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new GoogleStrategy({
-    callbackURL: keys.google.callBackURL,
-    clientID: keys.google.clientID,
-    clientSecret: keys.google.clientSecret
+    callbackURL: process.env.GOO_callBackURL,
+    clientID: process.env.GOO_clientID,
+    clientSecret: process.env.GOO_Secret
 }, (accessToken, refreshToken, profile, done) => {
     console.log('Google - CallBack function');
     console.log(profile);
@@ -48,9 +49,9 @@ passport.use(new GoogleStrategy({
 }))
 
 passport.use(new GithubStrategy({
-    callbackURL: keys.github.callBackURL,
-    clientID: keys.github.clientID,
-    clientSecret: keys.github.secretKey
+    callbackURL: process.env.GIT_callBackURL,
+    clientID: process.env.GIT_clientID,
+    clientSecret: process.env.GIT_secretKey
 }, (accessToken, refreshToken, profile, done) => {
     console.log('GitHub - CallBack Function!');
     console.log(profile);

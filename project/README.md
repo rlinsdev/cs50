@@ -25,6 +25,7 @@ $ npm i passport-google-oauth20
 $ npm i passport-github2
 $ npm i mongoose
 $ npm i cookie-session
+$ npm i dotenv --save
 ```
 
 

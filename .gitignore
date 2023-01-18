@@ -5,3 +5,4 @@ student.txt
 9-week/problem/finance/__pycache__/
 apague/fiftyville/fiftyville.db
 9-week/problem/finance/flask_session/
+project/.env
