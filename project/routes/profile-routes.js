@@ -9,6 +9,7 @@ const authCheck = (req, res, next) => {
     }
 }
 
+// Just render profile if user is authenticated
 router.get('/', authCheck, (req, res) => {
     res.render('profile', { user: req.user });
 });

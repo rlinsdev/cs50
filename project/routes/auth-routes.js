@@ -4,6 +4,7 @@ const passport = require('passport');
 
 // auth login
 router.get('/login',(req, res) => {
+    // Render login page
     res.render('login');
 });
 
@@ -15,7 +16,6 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
 })
 
-// google
 router.get('/google', passport.authenticate('google', {
     scope: ['profile']
 }));

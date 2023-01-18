@@ -2,7 +2,7 @@
 
 
 ## OAuth project:
-This is a OAuth project solution. With this, we will provide to users a single approach authentication.
+This is a OAuth project solution. With this, we will provide to users a single approach authentication. Advantage: All the responsibility about cryptography, manage user, security policy, change password... All this will be the responsibility of these third part application to handle
 
 Building with `node.js` (back-end Javascript) application, working with `express APP` (web framework for node.js) with `mongoDb` (NoSql DataBase).
 `Embedded js` was used to get easy to show data.

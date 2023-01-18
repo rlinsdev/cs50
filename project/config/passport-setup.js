@@ -18,7 +18,7 @@ passport.use(new GoogleStrategy({
     clientID: keys.google.clientID,
     clientSecret: keys.google.clientSecret
 }, (accessToken, refreshToken, profile, done) => {
-    console.log('passport callback function - Google');
+    // console.log('passport callback function - Google');
     // console.log(profile);
 
     User.findOne({id: profile.id}).then((savedUser) => {
@@ -36,12 +36,12 @@ passport.use(new GoogleStrategy({
                 username: profile.displayName,
                 avatar: avatar
             }).save().then((newUser) => {
-                console.log("New User! ", newUser);
+                // console.log("New User! ", newUser);
                 done(null, newUser);
             })
         } else {
             // User exist in BD
-            console.log("Existent user! ", savedUser);
+            // console.log("Existent user! ", savedUser);
             done(null, savedUser);
         }
     })
