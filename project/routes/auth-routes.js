@@ -8,8 +8,11 @@ router.get('/login',(req, res) => {
 });
 
 // auth logout
-router.get('/logout', (req, res) =>{
-    res.send("log out with passport");
+router.get('/logout', (req, res) => {
+    // Log Out user
+    req.logOut();
+    // redirect to login page
+    res.redirect('/');
 })
 
 // google
