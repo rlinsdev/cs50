@@ -37,6 +37,6 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
-app.listen(3000, () => {
-    console.log('link: http://localhost:3000');
+app.listen(3030, () => {
+    console.log('link: http://localhost:3030');
 })
