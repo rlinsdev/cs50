@@ -5,6 +5,7 @@
 This is a OAuth project solution. With this, we will provide to users a single approach authentication.
 
 Building with `node.js` (back-end Javascript) application, working with `express APP` (web framework for node.js) with `mongoDb` (NoSql DataBase).
+`Embedded js` was used to get easy to show data.
 The idea, is build a project with this technologies working with `Passportjs` (Authentication middleware for node) that will help future developers who want a solution to integrate the systems.
 At first, this working with: Facebook, Google and GitHub TODO: estes 3 mesmo?
 
@@ -22,6 +23,7 @@ $ npm i ejs express
 $ npm i passport
 $ npm i passport-google-oauth20
 $ npm i mongoose
+$ npm i cookie-session
 ```
 
 
