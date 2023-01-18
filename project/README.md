@@ -14,6 +14,7 @@ One similar project was did to make a microservice in my company, to focus in on
 ## To Run
 ```Shell
 $ nodemon app.js
+$ npm start
 ```
 
 ## Commands
