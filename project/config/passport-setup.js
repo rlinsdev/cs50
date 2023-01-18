@@ -25,6 +25,7 @@ passport.use(new GoogleStrategy({
         // Check if user exist in DB
         if (!savedUser) {
             let avatar;
+            console.log(profile);
             if (profile.photos != null && profile.photos.length > 0 ) {
                 avatar = profile.photos[0].value;
             }
