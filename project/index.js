@@ -36,8 +36,11 @@ app.use('/profile', profileRoutes);
 // // localhost:3000
 app.get('/', (req, res) => {
     res.render('home');
-})
+});
 
-app.listen(3030, () => {
-    console.log('link: http://localhost:3030');
-})
+const port = process.env.PORT || 3000;
+
+
+app.listen(port, () => {
+    console.log('link: http://localhost:3000');
+});
