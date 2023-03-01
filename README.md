@@ -1,8 +1,10 @@
 # Harvard CS50 2023x - Weekly Overview
-TODO
+Harvard University's introduction to the intellectual enterprises of computer science and the art of programming for majors and non-majors alike, with or without prior programming experience.
+
+CS50x teaches students how to think algorithmically and solve problems efficiently.Activities and societies: Harvard University's introduction to the intellectual enterprises of computer science and the art of programming for majors and non-majors alike, with or without prior programming experience. CS50x teaches students how to think algorithmically and solve problems efficiently.
+Topics include abstraction, algorithms, data structures, encapsulation, resource management, security, software engineering, and web development.
 
 ## Week 0 - Scratch
-TODO
 
 
 ### Links
